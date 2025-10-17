@@ -29,7 +29,7 @@ namespace QuanLyBanHang.DAL
 
         public int stock_quantity { get; set; }
 
-        public int category_id { get; set; }
+        public string category_id { get; set; }
 
         [Required]
         [StringLength(500)]
