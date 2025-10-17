@@ -235,11 +235,7 @@ WHERE O.user_id = @user_id"; // CHỈNH SỬA: Lọc theo tham số @user_id và
 
                 dgvDonHang.Columns["total_amount"].DefaultCellStyle.Format = "N0";
             }
-            else
-            {
-                MessageBox.Show("Bạn chưa có đơn hàng nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dgvDonHang.DataSource = null;
-            }
+            
         }
     }
 }

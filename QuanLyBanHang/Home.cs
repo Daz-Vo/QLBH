@@ -92,9 +92,50 @@ namespace QuanLyBanHang
                         DuongDanAnh = anh
                     };
 
+
                     oSanPham.Size = new Size(200, 280);
                     oSanPham.Margin = new Padding(10);
                     flowPanelSanPham.Controls.Add(oSanPham);
+                }
+
+                doc.Close();
+            }
+            flowDienThoai.Controls.Clear();
+            using (SqlConnection ketNoi = new SqlConnection(chuoiKetNoi))
+            {
+                string cauTruyVan = @"
+
+                SELECT [product_name], [price], [product_id], [stock_quantity], [image_url]
+
+                FROM [QLBH].[dbo].[Products]
+
+where [category_id] = N'Điện thoại'";
+
+                SqlCommand lenh = new SqlCommand(cauTruyVan, ketNoi);
+                ketNoi.Open();
+                SqlDataReader doc = await Task.Run(() => lenh.ExecuteReader());
+
+                while (doc.Read())
+                {
+                    string idSP = doc["product_id"].ToString();
+                    string ten = doc["product_name"].ToString();
+                    decimal gia = Convert.ToDecimal(doc["price"]);
+                    int soLuongTon = Convert.ToInt32(doc["stock_quantity"]);
+                    string anh = doc["image_url"].ToString();
+
+                    var oSanPham = new SanPhamItem
+                    {
+                        idSP = idSP,
+                        TenSanPham = ten,
+                        Gia = gia,
+                        SoLuongTonKho = soLuongTon,
+                        DuongDanAnh = anh
+                    };
+
+
+                    oSanPham.Size = new Size(200, 280);
+                    oSanPham.Margin = new Padding(10);
+                    flowDienThoai.Controls.Add(oSanPham);
                 }
 
                 doc.Close();

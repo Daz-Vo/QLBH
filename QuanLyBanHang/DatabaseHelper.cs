@@ -15,7 +15,7 @@ namespace QuanLyBanHang
     public static class DatabaseHelper
     {
         // Chuỗi kết nối chỉ cần viết 1 lần ở đây
-        private static string connectionString = @"Data Source=DAZ_VO\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True;Connect Timeout=30;";
+        private static string connectionString = @"Data Source=Minh-Lee\SQLEXPRESS03;Initial Catalog=QLBH;Integrated Security=True;Connect Timeout=30;";
 
         public static SqlConnection GetConnection()
         {
