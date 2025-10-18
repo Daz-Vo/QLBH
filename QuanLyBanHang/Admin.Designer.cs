@@ -439,7 +439,8 @@ namespace QuanLyBanHang
             this.txtMauSP.FormattingEnabled = true;
             this.txtMauSP.Items.AddRange(new object[] {
             "Điện thoại",
-            "Tai Nghe"});
+            "Tai nghe",
+            "Linh kiện"});
             this.txtMauSP.Location = new System.Drawing.Point(431, 584);
             this.txtMauSP.Name = "txtMauSP";
             this.txtMauSP.Size = new System.Drawing.Size(121, 28);
@@ -1048,7 +1049,7 @@ namespace QuanLyBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1236, 696);
+            this.ClientSize = new System.Drawing.Size(1239, 695);
             this.Controls.Add(this.tabControl1);
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

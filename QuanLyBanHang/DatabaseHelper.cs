@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +17,7 @@ namespace QuanLyBanHang
     public static class DatabaseHelper
     {
         // Chuỗi kết nối chỉ cần viết 1 lần ở đây
-        private static string connectionString = @"Data Source=Minh-Lee\SQLEXPRESS03;Initial Catalog=QLBH;Integrated Security=True;Connect Timeout=30;";
+        private static string connectionString = @"Data Source=Daz_Vo\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True;Connect Timeout=30;";
 
         public static SqlConnection GetConnection()
         {
@@ -448,14 +450,164 @@ WHERE order_id = '{id_DH_lay_tu}'";
                 return ds;
             }
         }
+        // Đặt hàm này vào class fChiTietSP
+        public static void ThemVaoGioHang(int productId, int quantityToAdd)
+        {
+            // Kiểm tra và chuyển đổi UserID sang kiểu Int (Giả sử UserID trong database là INT)
+            if (!int.TryParse(fLogin.UserId.ToString(), out int currentUserId))
+            {
+                MessageBox.Show("Lỗi định dạng ID người dùng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // 1. Câu lệnh SQL: Kiểm tra tồn tại và Cập nhật/Thêm mới
+            string query = @"
+        IF EXISTS (
+            SELECT 1 FROM [QLBH].[dbo].[Cart]
+            WHERE [user_id] = @UserID AND [product_id] = @ProductID
+        )
+        BEGIN
+            -- Cập nhật số lượng và ngày thêm
+            UPDATE [QLBH].[dbo].[Cart]
+            SET [quantity] = [quantity] + @QuantityToAdd,
+                [added_date] = GETDATE()
+            WHERE [user_id] = @UserID AND [product_id] = @ProductID;
+        END
+        ELSE
+        BEGIN
+            -- Thêm mới vào giỏ hàng
+            INSERT INTO [QLBH].[dbo].[Cart] (
+                [user_id],
+                [product_id],
+                [quantity],
+                [added_date]
+            )
+            VALUES (
+                @UserID,
+                @ProductID,
+                @QuantityToAdd,
+                GETDATE()
+            );
+        END";
+
+            // 2. Định nghĩa các tham số SQL
+            // LƯU Ý: txtSoLuong.Text đã được thay bằng tham số quantityToAdd (int)
+            var sqlParams = new[] {
+        new SqlParameter("@UserID", currentUserId),
+        new SqlParameter("@ProductID", productId),
+        new SqlParameter("@QuantityToAdd", quantityToAdd)
+    };
+
+            try
+            {
+                // 3. Thực thi truy vấn
+                // DatabaseHelper.ExecuteScalar(query, sqlParams); // Sử dụng ExecuteScalar/ExecuteNonQuery tùy vào helper
+                DatabaseHelper.ExecuteNonQuery(query, sqlParams); // Giả định DatabaseHelper có ExecuteNonQuery cho UPDATE/INSERT
+
+                MessageBox.Show($"{quantityToAdd} sản phẩm đã được thêm vào giỏ hàng!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi thêm sản phẩm vào giỏ hàng: {ex.Message}", "Lỗi Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // File: OrderService.cs (hoặc DatabaseHelper.cs)
+
+
+public static class OrderService
+    {
+        // Hàm này chỉ thực hiện logic nghiệp vụ và trả về thông báo lỗi/thành công.
+        public static string MuaNgay(int userId, int productId, int quantity)
+        {
+            if (quantity <= 0)
+            {
+                return "Vui lòng chọn số lượng lớn hơn 0.";
+            }
+
+            using (var QLDB = new QLDB_DB())
+            {
+                // Bắt đầu Transaction để đảm bảo tính toàn vẹn (ACID)
+                using (var transaction = QLDB.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        // 1. LẤY VÀ KIỂM TRA DỮ LIỆU
+                        var user = QLDB.Users.FirstOrDefault(u => u.user_id == userId);
+                        var product = QLDB.Products.FirstOrDefault(p => p.product_id == productId);
+
+                        if (user == null)
+                            return "Lỗi: Không tìm thấy thông tin người dùng.";
+                        if (product == null)
+                            return "Lỗi: Sản phẩm không tồn tại.";
+                        if (product.stock_quantity < quantity)
+                            return "Lỗi: Số lượng tồn kho không đủ.";
+
+                        // 2. TÍNH TOÁN VÀ XỬ LÝ
+                        decimal DonGia = product.price;
+                        decimal TongTien = quantity * DonGia;
+                        int SoLuongConLai = product.stock_quantity - quantity;
+                        DateTime NgayMua = DateTime.Now;
+
+                        // FIX NULL/EMPTY: Đảm bảo giá trị bắt buộc không rỗng
+                        string DiaChiGiaoHang = string.IsNullOrWhiteSpace(user.address) ? "Địa chỉ chưa cập nhật" : user.address;
+                        string TrangThaiDonHang = "Đã xác nhận đơn hàng";
+
+                        // 3. TẠO VÀ LƯU ORDER (Lưu lần 1: Lấy Order.order_id)
+                        var Order = new Order
+                        {
+                            user_id = userId,
+                            order_date = NgayMua,
+                            total_amount = TongTien,
+                            shipping_address = DiaChiGiaoHang,
+                            order_status = TrangThaiDonHang
+                        };
+                        QLDB.Orders.Add(Order);
+                        QLDB.SaveChanges();
+
+                        // 4. TẠO VÀ LƯU ORDER_ITEMS
+                        var Order_Items = new Order_Items
+                        {
+                            order_id = Order.order_id,
+                            product_id = productId,
+                            quantity = quantity,
+                            price_per_item = DonGia
+                        };
+                        QLDB.Order_Items.Add(Order_Items);
+
+                        // 5. CẬP NHẬT TỒN KHO
+                        product.stock_quantity = SoLuongConLai;
+
+                        // 6. LƯU CÁC THAY ĐỔI CÒN LẠI VÀ COMMIT
+                        QLDB.SaveChanges();
+                        transaction.Commit();
+
+                        return "Đặt hàng thành công!"; // Trả về thông báo thành công
+
+                    }
+                    catch (DbEntityValidationException ex)
+                    {
+                        transaction.Rollback();
+                        var errorMessages = ex.EntityValidationErrors
+                            .SelectMany(x => x.ValidationErrors)
+                            .Select(x => $"{x.PropertyName}: {x.ErrorMessage}");
+                        return "Lỗi xác thực dữ liệu:\n" + string.Join("\n", errorMessages);
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        return $"Đã xảy ra lỗi trong quá trình đặt hàng: {ex.Message}";
+                    }
+                }
+            }
+        }
+    }
 
 
 
 
 
-
-
-
+        
     }
 }
 

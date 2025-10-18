@@ -1,5 +1,6 @@
 namespace QuanLyBanHang.DAL
 {
+    using QuanLyBanHang.DAL;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -43,5 +44,6 @@ namespace QuanLyBanHang.DAL
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Items> Order_Items { get; set; }
+        public virtual ICollection<ListAnhSP> ListAnhSPs { get; set; }
     }
 }
