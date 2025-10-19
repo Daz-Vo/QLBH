@@ -1,4 +1,5 @@
 ﻿using Microsoft.Reporting.WinForms;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 using QuanLyBanHang.DAL;
 using QuanLyBanHang.Services;
 using System;
@@ -17,6 +18,16 @@ namespace QuanLyBanHang
 {
     public partial class fChiTietSP : Form
     {
+
+        public event EventHandler YeuCauThemSP;
+        public event EventHandler YeuCauCapNhatTonKho;
+
+        public class CapNhatTonKhoArgs : EventArgs
+        {
+            public string ProductId { get; set; }
+            public int QuantitySold { get; set; }
+        }
+
         public fChiTietSP()
         {
             InitializeComponent();
@@ -116,7 +127,7 @@ namespace QuanLyBanHang
 
             // 2. Hiển thị dữ liệu chính lên Controls
             lblTenSP.Text = "Tên Sản Phẩm: " + TenSanPham;
-            lblGia.Text = Gia.ToString("N0") + " VND";
+            lblGia.Text = Gia.ToString("N0") + " VNĐ";
             lblSoLuongTonKho.Text = "Còn: " + SoLuongTonKho.ToString();
             txtProductDescription.Text = MoTaSP;
 
@@ -127,66 +138,64 @@ namespace QuanLyBanHang
             HienThiListAnh(idSP);
         }
 
+        // TRONG FILE fChiTietSP.cs (hoặc Form con)
+
+        // TRONG FILE fChiTietSP.cs (Form con)
+
+        // Đảm bảo Form con đã có event này: public event EventHandler YeuCauThemSP;
+
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
+            // LẤY DỮ LIỆU CẦN THIẾT
+            int productId = Convert.ToInt32(this.idSP);
+            int quantity = Convert.ToInt32(txtSoLuong.Text.Trim()); // Giả sử có txtSoLuong
+
+            // 1. Kiểm tra Đăng nhập
             if (DatabaseHelper.KiemTraDangNhap() == 0)
             {
-                MessageBox.Show("Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.", "Chưa đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng đăng nhập.", "Chưa đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            DatabaseHelper.ThemVaoGioHang(Convert.ToInt32(this.idSP), Convert.ToInt32(txtSoLuong.Text.Trim()));
+            // 2. THÊM VÀO DATABASE VÀ TRỪ TỒN KHO
+            // Logic này phải được gọi trước khi kích hoạt Event và đóng Form.
+            DatabaseHelper.ThemVaoGioHang(productId, quantity);
 
+            // **Nếu CapNhatTonKho là static, gọi trực tiếp:**
+            // DatabaseHelper.CapNhatTonKho(productId, quantity); 
+
+            // 3. KÍCH HOẠT EVENT: Báo Form cha cập nhật giỏ hàng
+            YeuCauThemSP?.Invoke(this, EventArgs.Empty);
+
+            // 4. Đóng Form con
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void btnBuyNow_Click(object sender, EventArgs e)
         {
+            // 1. Kiem tra dang nhap
+            if (DatabaseHelper.KiemTraDangNhap() == 0)
             {
-                // 1. Kiểm tra đăng nhập
-                if (DatabaseHelper.KiemTraDangNhap() == 0)
-                {
-                    MessageBox.Show("Vui lòng đăng nhập.", "Chưa đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                // 2. Lấy thông tin đầu vào
-                int userId = fLogin.UserId;
-                int productId;
-                int soLuongMua;
-
-                // Đảm bảo các giá trị được chuyển đổi hợp lệ
-                if (!int.TryParse(this.idSP.ToString(), out productId))
-                {
-                    MessageBox.Show("Lỗi định dạng ID sản phẩm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (!int.TryParse(txtSoLuong.Text.Trim(), out soLuongMua))
-                {
-                    MessageBox.Show("Vui lòng nhập số lượng hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // 3. GỌI HÀM SERVICE
-                string resultMessage = OrderService.MuaNgay(userId, productId, soLuongMua);
-                
-
-                // 4. XỬ LÝ KẾT QUẢ VÀ CẬP NHẬT GIAO DIỆN
-                if (resultMessage == "Đặt hàng thành công!")
-                {
-                    MessageBox.Show(resultMessage, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Cập nhật tồn kho trên giao diện sau khi thành công
-                    this.SoLuongTonKho -= soLuongMua;
-                    lblSoLuongTonKho.Text = "Còn: " + this.SoLuongTonKho.ToString();
-
-                    
-                }
-                else
-                {
-                    MessageBox.Show(resultMessage, "Lỗi Đặt Hàng", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Vui lòng đăng nhập.", "Chưa đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
+            //đặt hàng vào data
+            DatabaseHelper.MuaNgay1SP(Convert.ToInt16(userid), idSP, Convert.ToInt16(txtSoLuong.Text));
+
+            // 3. KÍCH HOẠT EVENT
+            YeuCauCapNhatTonKho?.Invoke(this, EventArgs.Empty);
+            
+
+            // 4. Đóng Form con
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        public int CapNhatKho()
+        {
+            return SoLuongTonKho = SoLuongTonKho - Convert.ToInt16(txtSoLuong.Text);  ;
         }
     }
 }

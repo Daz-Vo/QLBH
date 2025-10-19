@@ -1,4 +1,5 @@
-﻿using QuanLyBanHang.DAL;
+﻿using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
+using QuanLyBanHang.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static QuanLyBanHang.DatabaseHelper;
 using static QuanLyBanHang.fChiTietSP;
@@ -33,10 +35,22 @@ namespace QuanLyBanHang
             InitializeComponent();
             this.Load += SanPhamItem_Load; // Đăng ký sự kiện Load
 
-            // Đăng ký sự kiện MouseEnter, MouseLeave
-            this.MouseEnter += (s, e) => this.BackColor = Color.AliceBlue;
-            this.MouseLeave += (s, e) => this.BackColor = Color.White;
-            
+            // Đăng ký sự kiện MouseEnter, MouseLeave cho picAnh
+            if (picAnh != null)
+            {
+                // 1. Khi chuột đi vào picAnh, đổi màu nền của GioHangItem (this)
+                picAnh.MouseEnter += (s, e) =>
+                {
+                    this.BackColor = Color.FromArgb(203, 220, 235);
+                };
+
+                // 2. Khi chuột rời khỏi picAnh, trả lại màu nền của GioHangItem (this)
+                picAnh.MouseLeave += (s, e) =>
+                {
+                    this.BackColor = Color.White;
+                };
+            }
+
         }
 
 
@@ -48,7 +62,7 @@ namespace QuanLyBanHang
 
             // Gán dữ liệu vào các Label
             lblTen.Text = TenSanPham ?? "Không có tên";
-            lblGia.Text = $"{Gia:N0} ₫";
+            lblGia.Text = $"{Gia:N0} VNĐ";
             lblSoLuong.Text = $"Còn: {SoLuongTonKho}";
 
             CapNhatGiaoDienTonKho();
@@ -93,7 +107,7 @@ namespace QuanLyBanHang
         {
             if (DatabaseHelper.KiemTraDangNhap() == 0)
             {
-                MessageBox.Show("Vui lòng đăng nhập để thêm sản phẩm vào giỏ hàng.", "Chưa đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng đăng nhập", "Chưa đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -101,7 +115,7 @@ namespace QuanLyBanHang
 
             // Load lại giỏ hàng
             fHome homeForm = this.FindForm() as fHome;
-            homeForm?.TaiGioHangTuSQL();
+            homeForm?.Tai_1SP_VaoGH(idSP);
         }
 
         private void btnMuaNgay_Click(object sender, EventArgs e)
@@ -131,7 +145,7 @@ namespace QuanLyBanHang
             }
 
             // 3. GỌI HÀM SERVICE
-            string resultMessage = OrderService.MuaNgay(userId, productId, soLuongMua);
+            string resultMessage = MuaNgay1SP(userId, productId, soLuongMua);
 
             // 4. XỬ LÝ KẾT QUẢ VÀ CẬP NHẬT GIAO DIỆN
             if (resultMessage == "Đặt hàng thành công!")
@@ -150,6 +164,8 @@ namespace QuanLyBanHang
                 MessageBox.Show(resultMessage, "Lỗi Đặt Hàng", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
         public void CapNhatGiaoDienTonKho()
         {
             // Cập nhật lại Label SoLuong dựa trên thuộc tính SoLuongTonKho
@@ -166,14 +182,33 @@ namespace QuanLyBanHang
             }
         }
 
-        private void picAnh_Click(object sender, EventArgs e)
+        private void picAnh_Click(object sender, EventArgs e) // Phải là async
         {
             fChiTietSP fChiTietSP = new fChiTietSP();
-            fChiTietSP.idSP = Convert.ToInt32(this.idSP);
+            fChiTietSP.idSP = Convert.ToInt16(this.idSP);
             fChiTietSP.userid = fLogin.UserId.ToString();
-            fChiTietSP.ShowDialog();
-        }
-        
 
+            // Lấy Form cha (fHome)
+            fHome formCha = this.TopLevelControl as fHome;
+
+            if (formCha != null)
+            {
+                // ĐĂNG KÝ EVENT: Xử lý hành động asynchronous (async) của Form cha
+                fChiTietSP.YeuCauThemSP += async (s, args) =>
+                {
+                    // LỆNH NÀY CHỈ CHẠY KHI fChiTietSP KÍCH HOẠT EVENT
+                    await formCha.Tai_1SP_VaoGH(this.idSP.ToString());
+                };
+    
+            }
+
+            fChiTietSP.YeuCauCapNhatTonKho += (s, args) =>
+            {
+                lblSoLuong.Text = "Còn: " + Convert.ToString(fChiTietSP.CapNhatKho());
+            };
+
+            fChiTietSP.ShowDialog();
+  
+        }
     }
 }

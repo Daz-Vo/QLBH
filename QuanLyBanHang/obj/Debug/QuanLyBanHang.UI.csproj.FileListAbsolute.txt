@@ -421,3 +421,4 @@ C:\Users\vovan\OneDrive\Desktop\Git_QLBH\QuanLyBanHang\obj\Debug\QuanLyBanHang.U
 C:\Users\vovan\OneDrive\Desktop\Git_QLBH\QuanLyBanHang\obj\Debug\QuanLyBa.1DBFEBAF.Up2Date
 C:\Users\vovan\OneDrive\Desktop\Git_QLBH\QuanLyBanHang\obj\Debug\QuanLyBanHang.exe
 C:\Users\vovan\OneDrive\Desktop\Git_QLBH\QuanLyBanHang\obj\Debug\QuanLyBanHang.pdb
+C:\Users\vovan\OneDrive\Desktop\Git_QLBH\QuanLyBanHang\obj\Debug\QuanLyBanHang.exe.config

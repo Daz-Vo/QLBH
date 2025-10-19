@@ -503,8 +503,6 @@ WHERE order_id = '{id_DH_lay_tu}'";
                 // 3. Thực thi truy vấn
                 // DatabaseHelper.ExecuteScalar(query, sqlParams); // Sử dụng ExecuteScalar/ExecuteNonQuery tùy vào helper
                 DatabaseHelper.ExecuteNonQuery(query, sqlParams); // Giả định DatabaseHelper có ExecuteNonQuery cho UPDATE/INSERT
-
-                MessageBox.Show($"{quantityToAdd} sản phẩm đã được thêm vào giỏ hàng!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -515,10 +513,9 @@ WHERE order_id = '{id_DH_lay_tu}'";
         // File: OrderService.cs (hoặc DatabaseHelper.cs)
 
 
-public static class OrderService
-    {
+
         // Hàm này chỉ thực hiện logic nghiệp vụ và trả về thông báo lỗi/thành công.
-        public static string MuaNgay(int userId, int productId, int quantity)
+        public static string MuaNgay1SP(int userId, int productId, int quantity)
         {
             if (quantity <= 0)
             {
@@ -601,13 +598,14 @@ public static class OrderService
                 }
             }
         }
-    }
+    
 
 
 
 
 
-        
+
+   
     }
 }
 

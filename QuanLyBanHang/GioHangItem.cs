@@ -10,11 +10,29 @@ namespace QuanLyBanHang
 {
     public partial class GioHangItem : UserControl
     {
+       
         public int CartId { get; set; }
         public string TenSanPham { get; set; }
         public string idSP { get; set; }
         public decimal Gia { get; set; }
-        public int SoLuong { get; set; }
+        private int _soLuong;
+
+        // Giả sử numSoLuong là control hiển thị số lượng (TextBox, Label, NumericUpDown)
+        public int SoLuong
+        {
+            get { return _soLuong; }
+            set
+            {
+                _soLuong = value;
+                // Cập nhật control giao diện ngay khi thuộc tính thay đổi
+                if (numSoLuong != null) // Đảm bảo control đã được khởi tạo
+                {
+                    // Dùng .Text nếu là Label/TextBox, dùng .Value nếu là NumericUpDown
+                    numSoLuong.Text = value.ToString(); // Hoặc numSoLuong.Value = value;
+                }
+            }
+        }
+
         public string DuongDanAnh { get; set; }
 
         
@@ -27,7 +45,7 @@ namespace QuanLyBanHang
         private void GioHangItem_Load(object sender, EventArgs e)
         {
             lblTen.Text = TenSanPham ?? "Không có tên";
-            lblGia.Text = $"{Gia:N0} ₫";
+            lblGia.Text = $"{Gia:N0} VNĐ";
             numSoLuong.Value = SoLuong;
 
             // Tải ảnh
@@ -67,18 +85,8 @@ namespace QuanLyBanHang
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            string query = @"DELETE FROM [QLBH].[dbo].[Cart]
-            WHERE 
-            [cart_id] = @id;";
-
-            var bien = new[] {
-            new SqlParameter("@id", CartId.ToString()),
-            };
-            DatabaseHelper.ExecuteScalar(query, bien);
-
             fHome homeForm = this.FindForm() as fHome;
-            homeForm?.TaiGioHangTuSQL();
-
+            homeForm?.Xoa_1SP_KhoiGH(CartId);
         }
     }
 }

@@ -53,9 +53,10 @@
             // 
             // tableLayoutPanelMain
             // 
+            this.tableLayoutPanelMain.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanelMain.ColumnCount = 2;
-            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanelMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
             this.tableLayoutPanelMain.Controls.Add(this.panelImage, 0, 0);
             this.tableLayoutPanelMain.Controls.Add(this.panelDetails, 1, 0);
             this.tableLayoutPanelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -63,44 +64,49 @@
             this.tableLayoutPanelMain.Name = "tableLayoutPanelMain";
             this.tableLayoutPanelMain.RowCount = 1;
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelMain.Size = new System.Drawing.Size(950, 580);
+            this.tableLayoutPanelMain.Size = new System.Drawing.Size(1100, 614);
             this.tableLayoutPanelMain.TabIndex = 0;
             // 
             // panelImage
             // 
+            this.panelImage.BackColor = System.Drawing.Color.White;
             this.panelImage.Controls.Add(this.flowPanelThumbnails);
             this.panelImage.Controls.Add(this.picAnhSP);
             this.panelImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelImage.Location = new System.Drawing.Point(3, 3);
             this.panelImage.Name = "panelImage";
-            this.panelImage.Padding = new System.Windows.Forms.Padding(20);
-            this.panelImage.Size = new System.Drawing.Size(374, 574);
+            this.panelImage.Padding = new System.Windows.Forms.Padding(25);
+            this.panelImage.Size = new System.Drawing.Size(489, 608);
             this.panelImage.TabIndex = 0;
             // 
             // flowPanelThumbnails
             // 
             this.flowPanelThumbnails.AutoScroll = true;
-            this.flowPanelThumbnails.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.flowPanelThumbnails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.flowPanelThumbnails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowPanelThumbnails.Location = new System.Drawing.Point(20, 487);
+            this.flowPanelThumbnails.Location = new System.Drawing.Point(25, 505);
+            this.flowPanelThumbnails.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.flowPanelThumbnails.Name = "flowPanelThumbnails";
-            this.flowPanelThumbnails.Size = new System.Drawing.Size(334, 67);
+            this.flowPanelThumbnails.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.flowPanelThumbnails.Size = new System.Drawing.Size(439, 78);
             this.flowPanelThumbnails.TabIndex = 1;
             this.flowPanelThumbnails.WrapContents = false;
             // 
             // picAnhSP
             // 
-            this.picAnhSP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picAnhSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
+            this.picAnhSP.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picAnhSP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.picAnhSP.Location = new System.Drawing.Point(20, 20);
+            this.picAnhSP.Location = new System.Drawing.Point(25, 25);
             this.picAnhSP.Name = "picAnhSP";
-            this.picAnhSP.Size = new System.Drawing.Size(334, 467);
+            this.picAnhSP.Size = new System.Drawing.Size(439, 480);
             this.picAnhSP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picAnhSP.TabIndex = 0;
             this.picAnhSP.TabStop = false;
             // 
             // panelDetails
             // 
+            this.panelDetails.BackColor = System.Drawing.Color.White;
             this.panelDetails.Controls.Add(this.panelActions);
             this.panelDetails.Controls.Add(this.labelDescriptionTitle);
             this.panelDetails.Controls.Add(this.txtProductDescription);
@@ -108,38 +114,42 @@
             this.panelDetails.Controls.Add(this.lblGia);
             this.panelDetails.Controls.Add(this.lblTenSP);
             this.panelDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDetails.Location = new System.Drawing.Point(383, 3);
+            this.panelDetails.Location = new System.Drawing.Point(498, 3);
             this.panelDetails.Name = "panelDetails";
-            this.panelDetails.Padding = new System.Windows.Forms.Padding(10);
-            this.panelDetails.Size = new System.Drawing.Size(564, 574);
+            this.panelDetails.Padding = new System.Windows.Forms.Padding(30, 25, 30, 25);
+            this.panelDetails.Size = new System.Drawing.Size(599, 608);
             this.panelDetails.TabIndex = 1;
             // 
             // panelActions
             // 
             this.panelActions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelActions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelActions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.panelActions.Controls.Add(this.txtSoLuong);
             this.panelActions.Controls.Add(this.lblQuantity);
             this.panelActions.Controls.Add(this.btnAddToCart);
             this.panelActions.Controls.Add(this.btnBuyNow);
-            this.panelActions.Location = new System.Drawing.Point(10, 450);
+            this.panelActions.Location = new System.Drawing.Point(30, 505);
             this.panelActions.Name = "panelActions";
-            this.panelActions.Size = new System.Drawing.Size(540, 110);
+            this.panelActions.Padding = new System.Windows.Forms.Padding(20, 15, 20, 15);
+            this.panelActions.Size = new System.Drawing.Size(539, 75);
             this.panelActions.TabIndex = 5;
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoLuong.Location = new System.Drawing.Point(100, 13);
+            this.txtSoLuong.BackColor = System.Drawing.Color.White;
+            this.txtSoLuong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSoLuong.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoLuong.Location = new System.Drawing.Point(23, 35);
             this.txtSoLuong.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(57, 29);
+            this.txtSoLuong.Size = new System.Drawing.Size(80, 31);
             this.txtSoLuong.TabIndex = 3;
+            this.txtSoLuong.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSoLuong.Value = new decimal(new int[] {
             1,
             0,
@@ -149,24 +159,25 @@
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(15, 15);
+            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.lblQuantity.Location = new System.Drawing.Point(26, 10);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(76, 21);
+            this.lblQuantity.Size = new System.Drawing.Size(69, 19);
             this.lblQuantity.TabIndex = 2;
-            this.lblQuantity.Text = "Số lượng:";
+            this.lblQuantity.Text = "Số lượng";
             // 
             // btnAddToCart
             // 
-            this.btnAddToCart.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAddToCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
             this.btnAddToCart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddToCart.FlatAppearance.BorderSize = 0;
             this.btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddToCart.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddToCart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToCart.ForeColor = System.Drawing.Color.White;
-            this.btnAddToCart.Location = new System.Drawing.Point(150, 50);
+            this.btnAddToCart.Location = new System.Drawing.Point(130, 15);
             this.btnAddToCart.Name = "btnAddToCart";
-            this.btnAddToCart.Size = new System.Drawing.Size(180, 45);
+            this.btnAddToCart.Size = new System.Drawing.Size(180, 50);
             this.btnAddToCart.TabIndex = 1;
             this.btnAddToCart.Text = "THÊM GIỎ HÀNG";
             this.btnAddToCart.UseVisualStyleBackColor = false;
@@ -174,15 +185,15 @@
             // 
             // btnBuyNow
             // 
-            this.btnBuyNow.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnBuyNow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.btnBuyNow.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuyNow.FlatAppearance.BorderSize = 0;
             this.btnBuyNow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuyNow.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuyNow.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuyNow.ForeColor = System.Drawing.Color.White;
-            this.btnBuyNow.Location = new System.Drawing.Point(340, 50);
+            this.btnBuyNow.Location = new System.Drawing.Point(320, 15);
             this.btnBuyNow.Name = "btnBuyNow";
-            this.btnBuyNow.Size = new System.Drawing.Size(180, 45);
+            this.btnBuyNow.Size = new System.Drawing.Size(180, 50);
             this.btnBuyNow.TabIndex = 0;
             this.btnBuyNow.Text = "MUA NGAY";
             this.btnBuyNow.UseVisualStyleBackColor = false;
@@ -191,10 +202,11 @@
             // labelDescriptionTitle
             // 
             this.labelDescriptionTitle.AutoSize = true;
-            this.labelDescriptionTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescriptionTitle.Location = new System.Drawing.Point(12, 185);
+            this.labelDescriptionTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescriptionTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.labelDescriptionTitle.Location = new System.Drawing.Point(32, 215);
             this.labelDescriptionTitle.Name = "labelDescriptionTitle";
-            this.labelDescriptionTitle.Size = new System.Drawing.Size(161, 25);
+            this.labelDescriptionTitle.Size = new System.Drawing.Size(155, 25);
             this.labelDescriptionTitle.TabIndex = 4;
             this.labelDescriptionTitle.Text = "Mô Tả Sản Phẩm";
             // 
@@ -203,46 +215,49 @@
             this.txtProductDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProductDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.txtProductDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtProductDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductDescription.Location = new System.Drawing.Point(14, 220);
+            this.txtProductDescription.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
+            this.txtProductDescription.Location = new System.Drawing.Point(30, 250);
             this.txtProductDescription.Multiline = true;
             this.txtProductDescription.Name = "txtProductDescription";
             this.txtProductDescription.ReadOnly = true;
             this.txtProductDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtProductDescription.Size = new System.Drawing.Size(536, 210);
+            this.txtProductDescription.Size = new System.Drawing.Size(539, 249);
             this.txtProductDescription.TabIndex = 3;
+            this.txtProductDescription.TabStop = false;
             this.txtProductDescription.Text = "Chưa có thông tin mô tả.";
             // 
             // lblSoLuongTonKho
             // 
             this.lblSoLuongTonKho.AutoSize = true;
-            this.lblSoLuongTonKho.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoLuongTonKho.ForeColor = System.Drawing.Color.Gray;
-            this.lblSoLuongTonKho.Location = new System.Drawing.Point(14, 140);
+            this.lblSoLuongTonKho.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoLuongTonKho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
+            this.lblSoLuongTonKho.Location = new System.Drawing.Point(34, 170);
             this.lblSoLuongTonKho.Name = "lblSoLuongTonKho";
-            this.lblSoLuongTonKho.Size = new System.Drawing.Size(54, 21);
+            this.lblSoLuongTonKho.Size = new System.Drawing.Size(50, 20);
             this.lblSoLuongTonKho.TabIndex = 2;
             this.lblSoLuongTonKho.Text = "Còn: 0";
             // 
             // lblGia
             // 
             this.lblGia.AutoSize = true;
-            this.lblGia.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGia.ForeColor = System.Drawing.Color.Red;
-            this.lblGia.Location = new System.Drawing.Point(10, 80);
+            this.lblGia.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.lblGia.Location = new System.Drawing.Point(28, 110);
             this.lblGia.Name = "lblGia";
-            this.lblGia.Size = new System.Drawing.Size(216, 45);
+            this.lblGia.Size = new System.Drawing.Size(257, 51);
             this.lblGia.TabIndex = 1;
             this.lblGia.Text = "000.000 VNĐ";
             // 
             // lblTenSP
             // 
-            this.lblTenSP.AutoSize = true;
-            this.lblTenSP.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenSP.Location = new System.Drawing.Point(10, 10);
+            this.lblTenSP.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenSP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
+            this.lblTenSP.Location = new System.Drawing.Point(30, 25);
             this.lblTenSP.Name = "lblTenSP";
-            this.lblTenSP.Size = new System.Drawing.Size(247, 45);
+            this.lblTenSP.Size = new System.Drawing.Size(539, 80);
             this.lblTenSP.TabIndex = 0;
             this.lblTenSP.Text = "Tên Sản Phẩm: ";
             // 
@@ -250,9 +265,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 580);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1100, 614);
             this.Controls.Add(this.tableLayoutPanelMain);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "fChiTietSP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi Tiết Sản Phẩm";

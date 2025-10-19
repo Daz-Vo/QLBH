@@ -60,9 +60,9 @@ namespace QuanLyBanHang
             InitializeComponent();         
             fHome homeForm = new fHome(this);
             homeForm.ShowDialog();
-            this.AcceptButton = btnLogin; // Đặt nút đăng nhập làm nút mặc định
+            this.AcceptButton = btnLogin; // Đặt nút đăng nhập làm nút mặc định           
         }
-
+       
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -99,7 +99,7 @@ namespace QuanLyBanHang
                     
                    
                     
-            }
+                }
                 else
                 {
                     MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu!");

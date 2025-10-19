@@ -21,7 +21,7 @@ namespace QuanLyBanHang
         public int Admin = fLogin.QuyenUser;
 
         // Khai báo biến tongTien ở cấp độ class
-        decimal tongTien = 0; // Biến này cần được reset trong TaiGioHangTuSQL()
+        public decimal tongTien = 0; // Biến này cần được reset trong TaiGioHangTuSQL()
 
         public fHome(fLogin loginForm)
         {
@@ -29,6 +29,16 @@ namespace QuanLyBanHang
             InitializeComponent();
             this.Load += fHome_Load;
             this.btnDatHang.Click += btnDatHang_Click; // Đảm bảo nút "Đặt hàng" có sự kiện
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fHome_FormClosing);
+        }
+
+        private void fHome_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Kiểm tra câu trả lời của người dùng
+            if (ID_Dang_Nhap != 0)
+            {
+                System.Windows.Forms.Application.Exit();
+            }
         }
 
 
@@ -57,6 +67,7 @@ namespace QuanLyBanHang
             if (Admin == 1)
             {
                 btnAdmin.Visible = true;
+                btnLoadLaisp.Visible = true;
             }
 
         }
@@ -93,14 +104,15 @@ namespace QuanLyBanHang
                     };
 
 
-                    oSanPham.Size = new Size(200, 280);
-                    oSanPham.Margin = new Padding(10);
+                    
+                    oSanPham.Margin = new Padding(5);
                     flowPanelSanPham.Controls.Add(oSanPham);
                 }
 
                 doc.Close();
             }
             flowDienThoai.Controls.Clear();
+
             using (SqlConnection ketNoi = new SqlConnection(chuoiKetNoi))
             {
                 string cauTruyVan = @"
@@ -133,8 +145,8 @@ where [category_id] = N'Điện thoại'";
                     };
 
 
-                    oSanPham.Size = new Size(200, 280);
-                    oSanPham.Margin = new Padding(10);
+                   
+                    oSanPham.Margin = new Padding(5);
                     flowDienThoai.Controls.Add(oSanPham);
                 }
 
@@ -145,62 +157,96 @@ where [category_id] = N'Điện thoại'";
         // === TẢI GIỎ HÀNG TỪ SQL (ĐÃ SỬA LỖI TỔNG TIỀN) ===
         public async Task TaiGioHangTuSQL()
         {
-            flowPanelGioHang.Controls.Clear();
 
+            flowPanelGioHang.Controls.Clear();
             // **FIX LỖI:** Reset tổng tiền về 0 trước khi tính toán lại.
-            tongTien = 0;
+            tongTien = 0; // Giữ nguyên reset biến tổng tiền
 
             using (SqlConnection ketNoi = new SqlConnection(chuoiKetNoi))
             {
                 string cauTruyVan = @"
-                    SELECT 
-                        c.cart_id,
-                        c.product_id,
-                        c.quantity,
-                        p.product_name,
-                        p.price,
-                        p.image_url
-                    FROM [QLBH].[dbo].[Cart] c
-                    INNER JOIN [QLBH].[dbo].[Products] p ON c.product_id = p.product_id
-                    WHERE c.user_id = @UserId";
+            SELECT 
+                c.cart_id,
+                c.product_id,
+                c.quantity,
+                p.product_name,
+                p.price,
+                p.image_url
+            FROM [QLBH].[dbo].[Cart] c
+            INNER JOIN [QLBH].[dbo].[Products] p ON c.product_id = p.product_id
+            WHERE c.user_id = @UserId";
 
                 SqlCommand lenh = new SqlCommand(cauTruyVan, ketNoi);
                 lenh.Parameters.AddWithValue("@UserId", ID_Dang_Nhap);
 
-                ketNoi.Open();
-                SqlDataReader doc = await Task.Run(() => lenh.ExecuteReader());
-
-                while (doc.Read())
+                try
                 {
-                    string idSP = doc["product_id"].ToString();
-                    int cartId = Convert.ToInt32(doc["cart_id"]);
-                    string ten = doc["product_name"].ToString();
-                    decimal gia = Convert.ToDecimal(doc["price"]);
-                    int soLuong = Convert.ToInt32(doc["quantity"]);
-                    string anh = doc["image_url"].ToString();
+                    // Nên dùng OpenAsync() và ExecuteReaderAsync() nếu có thể
+                    ketNoi.Open();
+                    SqlDataReader doc = await Task.Run(() => lenh.ExecuteReader());
 
-                    var item = new GioHangItem
+                    while (doc.Read())
                     {
-                        idSP = idSP,
-                        TenSanPham = ten,
-                        Gia = gia,
-                        SoLuong = soLuong,
-                        DuongDanAnh = anh,
-                        CartId = cartId
-                    };
+                        string idSP = doc["product_id"].ToString();
+                        int cartId = Convert.ToInt32(doc["cart_id"]);
+                        string ten = doc["product_name"].ToString();
+                        decimal gia = Convert.ToDecimal(doc["price"]);
+                        int soLuong = Convert.ToInt32(doc["quantity"]);
+                        string anh = doc["image_url"].ToString();
 
-                    item.Size = new Size(280, 100);
-                    item.Margin = new Padding(5);
+                        var item = new GioHangItem
+                        {
+                            idSP = idSP,
+                            TenSanPham = ten,
+                            Gia = gia,
+                            SoLuong = soLuong,
+                            DuongDanAnh = anh,
+                            CartId = cartId
+                        };
+                                          
+                        item.Margin = new Padding(5);
 
+                        // ĐĂNG KÝ SỰ KIỆN: Khi item bị xóa, gọi hàm CapNhatTongTien()
+    
 
-                    flowPanelGioHang.Controls.Add(item);
-                    tongTien += gia * soLuong;
+                        flowPanelGioHang.Controls.Add(item);
+
+                        // Giữ nguyên logic tính tổng tiền (tongTien)
+                        // để đảm bảo tongTien chứa tổng giá trị sau khi tải
+                        tongTien += gia * soLuong;
+                    }
+
+                    doc.Close();
                 }
-
-                doc.Close();
+                catch (Exception )
+                {
+                    // Xử lý lỗi
+                }
             }
 
-            lblTongTien.Text = $"Tổng: {tongTien:N0} ₫";
+            // GỌI HÀM MỚI ĐỂ GÁN TỔNG TIỀN VÀO LABEL
+            CapNhatTongTien();
+        }
+        /// <summary>
+        /// Tính toán lại tổng tiền dựa trên các item hiện có trong flowPanelGioHang 
+        /// và gán giá trị vào lblTongTien.
+        /// </summary>
+ 
+        public void CapNhatTongTien()
+        {
+            decimal tongTienMoi = 0;
+            // Lặp qua tất cả các control là GioHangItem trong panel
+            foreach (GioHangItem item in flowPanelGioHang.Controls.OfType<GioHangItem>())
+            {
+                // Sử dụng thuộc tính Gia và SoLuong đã được gán khi tải
+                tongTienMoi += item.Gia * item.SoLuong;
+            }
+
+            // Cập nhật biến tongTien của lớp
+            tongTien = tongTienMoi;
+
+            // Gán vào Label hiển thị
+            lblTongTien.Text = $"Tổng: {tongTien:N0} VNĐ";
         }
 
         // === CẬP NHẬT SỐ LƯỢNG TRONG GIỎ HÀNG (SQL) ===
@@ -409,6 +455,164 @@ where [category_id] = N'Điện thoại'";
             admin.ShowDialog();
         }
 
+        public async Task Tai_1SP_VaoGH(string idSPCanTai)
+        {
+            // KHÔNG reset tongTien = 0; nữa, vì bạn muốn cộng dồn.
+            // Nếu sản phẩm đã tồn tại, logic này sẽ gây ra lỗi cộng dồn.
+            // Tốt hơn hết, bạn nên làm như sau:
 
+            // 1. Dùng hàm này để TẢI DỮ LIỆU CỦA SẢN PHẨM MỚI TỪ DB.
+            // 2. TÌM xem sản phẩm đó đã có trong flowPanelGioHang chưa.
+            // 3. Nếu có, CẬP NHẬT số lượng và TRỪ tổng tiền cũ rồi CỘNG tổng tiền mới.
+            // 4. Nếu chưa, THÊM control mới và CỘNG thẳng vào tổng tiền.
+
+            decimal tongTienCu = tongTien; // Lưu lại tổng tiền ban đầu để tính toán lại sau
+            decimal giaTriThayDoi = 0; // Số tiền sẽ được cộng/trừ vào tổng tiền
+
+            // BƯỚC 1: LỌC VÀ TRUY VẤN SẢN PHẨM CỤ THỂ
+            using (SqlConnection ketNoi = new SqlConnection(chuoiKetNoi))
+            {
+                string cauTruyVan = @"
+            SELECT 
+                c.cart_id,
+                c.product_id,
+                c.quantity,
+                p.product_name,
+                p.price,
+                p.image_url
+            FROM [QLBH].[dbo].[Cart] c
+            INNER JOIN [QLBH].[dbo].[Products] p ON c.product_id = p.product_id
+            WHERE c.user_id = @UserId AND c.product_id = @ProductId"; // <-- Lọc theo product_id
+
+                SqlCommand lenh = new SqlCommand(cauTruyVan, ketNoi);
+                lenh.Parameters.AddWithValue("@UserId", ID_Dang_Nhap);
+                lenh.Parameters.AddWithValue("@ProductId", idSPCanTai); // <-- Thêm tham số lọc
+
+                try
+                {
+                    await ketNoi.OpenAsync();
+                    SqlDataReader doc = await lenh.ExecuteReaderAsync();
+
+                    // BƯỚC 2: XỬ LÝ KẾT QUẢ TRUY VẤN
+                    if (doc.Read()) // Chỉ đọc một kết quả
+                    {
+                        string idSP = doc["product_id"].ToString();
+                        int cartId = Convert.ToInt32(doc["cart_id"]);
+                        string ten = doc["product_name"].ToString();
+                        decimal gia = Convert.ToDecimal(doc["price"]);
+                        int soLuongMoi = Convert.ToInt32(doc["quantity"]);
+                        string anh = doc["image_url"].ToString();
+
+                        // 2.1: TÌM KIẾM ITEM ĐÃ TỒN TẠI TRONG GIAO DIỆN CHƯA
+                        GioHangItem itemHienTai = flowPanelGioHang.Controls
+                            .OfType<GioHangItem>()
+                            .FirstOrDefault(i => i.idSP == idSP);
+
+                        if (itemHienTai != null)
+                        {
+                            // ĐÃ TỒN TẠI (Update số lượng)
+
+                            // ... (Tính toán tổng tiền)
+                            decimal giaTriCu = itemHienTai.Gia * itemHienTai.SoLuong;
+                            decimal giaTriMoi = gia * soLuongMoi;
+
+                            // Cập nhật thuộc tính đối tượng C#
+                            itemHienTai.SoLuong = soLuongMoi;
+                            itemHienTai.CartId = cartId;
+
+                            // Tính toán chênh lệch tổng tiền
+                            giaTriThayDoi = giaTriMoi - giaTriCu;
+                        }
+                        else
+                        {
+                            // CHƯA TỒN TẠI (Thêm mới)
+
+                            var itemMoi = new GioHangItem
+                            {
+                                idSP = idSP,
+                                TenSanPham = ten,
+                                Gia = gia,
+                                SoLuong = soLuongMoi,
+                                DuongDanAnh = anh,
+                                CartId = cartId
+                            };
+
+                            
+                            itemMoi.Margin = new Padding(5);
+
+                            flowPanelGioHang.Controls.Add(itemMoi);
+
+                            // Tính toán giá trị mới để cộng vào tổng tiền
+                            giaTriThayDoi = gia * soLuongMoi;
+                        }
+                    }
+
+                    doc.Close();
+                }
+                catch (Exception )
+                {
+                    // Xử lý lỗi
+                }
+            }
+
+            // BƯỚC 3: CẬP NHẬT TỔNG TIỀN CUỐI CÙNG
+            // tongTien = tổng tiền hiện tại + giá trị thay đổi
+            CapNhatTongTien();
+        }
+        public async Task Xoa_1SP_KhoiGH(int cartIdCanXoa)
+        {
+            // BƯỚC 1: XÓA KHỎI DATABASE
+            using (SqlConnection ketNoi = new SqlConnection(chuoiKetNoi))
+            {
+                string cauTruyVan = @"
+            DELETE FROM [QLBH].[dbo].[Cart]
+            WHERE [cart_id] = @CartId";
+
+                SqlCommand lenh = new SqlCommand(cauTruyVan, ketNoi);
+                lenh.Parameters.AddWithValue("@CartId", cartIdCanXoa);
+
+                try
+                {
+                    await ketNoi.OpenAsync();
+                    // Sử dụng ExecuteNonQueryAsync vì đây là lệnh DELETE
+                    await lenh.ExecuteNonQueryAsync();
+                }
+                catch (Exception)
+                {
+                    // Xử lý lỗi (ví dụ: lỗi không thể kết nối DB)
+                    return; // Dừng lại nếu không xóa được khỏi DB
+                }
+            }
+
+            // BƯỚC 2: XÓA KHỎI GIAO DIỆN
+
+            // 2.1: TÌM KIẾM ITEM ĐÃ TỒN TẠI TRONG GIAO DIỆN CHƯA
+            // Chúng ta tìm GioHangItem dựa trên CartId
+            GioHangItem itemCanXoa = flowPanelGioHang.Controls
+                .OfType<GioHangItem>()
+                .FirstOrDefault(i => i.CartId == cartIdCanXoa); // Giả sử CartId là thuộc tính của GioHangItem
+
+            if (itemCanXoa != null)
+            {
+                // Lấy tham chiếu đến panel cha (flowPanelGioHang)
+                System.Windows.Forms.Control parentPanel = itemCanXoa.Parent;
+
+                // 2.2: LOẠI BỎ KHỎI DANH SÁCH VÀ GIẢI PHÓNG BỘ NHỚ
+                if (parentPanel != null)
+                {
+                    parentPanel.Controls.Remove(itemCanXoa); // Loại bỏ khỏi Controls list
+                }
+                itemCanXoa.Dispose(); // Giải phóng tài nguyên
+            }
+
+            // BƯỚC 3: CẬP NHẬT TỔNG TIỀN CUỐI CÙNG
+            // Hàm này sẽ lặp qua các item còn lại và tính tổng.
+            CapNhatTongTien();
+        }
+
+        private void btnLoadLaisp_Click(object sender, EventArgs e)
+        {
+            Task LoadLaiSP = TaiDanhSachSanPham();
+        }
     }
 }
