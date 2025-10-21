@@ -598,14 +598,88 @@ WHERE order_id = '{id_DH_lay_tu}'";
                 }
             }
         }
-    
+
+
+        public static async Task TaiVaHienThiSanPham(
+        string chuoiKetNoi, // Truyền chuỗi kết nối vào đây (khắc phục CS0103)
+        string cauTruyVan,
+        Dictionary<string, object> parameters,
+        FlowLayoutPanel flowPanel)
+        {
+            // Khắc phục lỗi nếu flowPanel.Controls là lỗi thread-safe 
+            // (chỉ xảy ra khi gọi từ thread khác UI, nhưng tốt nhất nên dùng Invoke/BeginInvoke)
+            // Tuy nhiên, vì TaiDanhSachSanPham là async, ta giả định nó được gọi trên thread UI.
+            flowPanel.Controls.Clear();
+            List<SanPhamItem> sanPhamItems = new List<SanPhamItem>();
+
+            // Sửa lỗi CS8477/CS8870: Dùng using đồng bộ (nếu .NET Framework/C# cũ)
+            using (SqlConnection ketNoi = new SqlConnection(chuoiKetNoi))
+            {
+                try
+                {
+                    // Thay thế ketNoi.Open(); bằng await ketNoi.OpenAsync();
+                    await ketNoi.OpenAsync();
+
+                    using (SqlCommand lenh = new SqlCommand(cauTruyVan, ketNoi))
+                    {
+                        // Thêm tham số (giúp bảo mật và tối ưu)
+                        if (parameters != null)
+                        {
+                            foreach (var param in parameters)
+                            {
+                                lenh.Parameters.AddWithValue(param.Key, param.Value ?? DBNull.Value);
+                            }
+                        }
+
+                        // Thay thế await Task.Run(() => lenh.ExecuteReader()); bằng await lenh.ExecuteReaderAsync();
+                        using (SqlDataReader doc = await lenh.ExecuteReaderAsync())
+                        {
+                            while (await doc.ReadAsync()) // Dùng ReadAsync()
+                            {
+                                // Đảm bảo dữ liệu không bị null trước khi gọi ToString()
+                                string idSP = doc["product_id"]?.ToString() ?? string.Empty;
+                                string ten = doc["product_name"]?.ToString() ?? string.Empty;
+
+                                // Sử dụng GetDecimal/GetInt32 để đọc trực tiếp (hiệu quả hơn)
+                                // Sử dụng GetOrdinal để tránh lỗi khi đổi tên cột
+                                decimal gia = doc.GetDecimal(doc.GetOrdinal("price"));
+                                int soLuongTon = doc.GetInt32(doc.GetOrdinal("stock_quantity"));
+                                string anh = doc["image_url"]?.ToString() ?? string.Empty;
+
+                                var oSanPham = new SanPhamItem
+                                {
+                                    idSP = idSP,
+                                    TenSanPham = ten,
+                                    Gia = gia,
+                                    SoLuongTonKho = soLuongTon,
+                                    DuongDanAnh = anh,
+                                    Margin = new Padding(23)
+                                };
+
+                                sanPhamItems.Add(oSanPham);
+                            }
+                        }
+                        // Bỏ doc.Close() vì using đã tự đóng
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý hoặc ghi log lỗi tại đây
+                    MessageBox.Show("Lỗi truy vấn: " + ex.Message);
+                }
+                // Bỏ ketNoi.Close() vì using đã tự đóng
+            }
+
+            // Thêm tất cả controls một lần (tăng hiệu suất UI)
+            flowPanel.Controls.AddRange(sanPhamItems.ToArray());
+        }
 
 
 
 
 
 
-   
+
     }
 }
 

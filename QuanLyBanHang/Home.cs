@@ -75,85 +75,61 @@ namespace QuanLyBanHang
         // === TẢI SẢN PHẨM ===
         private async Task TaiDanhSachSanPham()
         {
-            flowPanelSanPham.Controls.Clear();
-            using (SqlConnection ketNoi = new SqlConnection(chuoiKetNoi))
-            {
-                string cauTruyVan = @"
-                SELECT [product_name], [price], [product_id], [stock_quantity], [image_url]
-                FROM [QLBH].[dbo].[Products]";
+            // Giả định: 
+            // - chuoiKetNoi là biến có sẵn trong scope này.
+            // - DatabaseHelper.TaiVaHienThiSanPham là hàm static đã được tối ưu.
+            // - flowPanelSanPham, flowDienThoai, flowTaiNghe là các FlowLayoutPanel có sẵn.
 
-                SqlCommand lenh = new SqlCommand(cauTruyVan, ketNoi);
-                ketNoi.Open();
-                SqlDataReader doc = await Task.Run(() => lenh.ExecuteReader());
+            // 1. Tải toàn bộ sản phẩm
+            string tatCaSPQuery = @"
+        SELECT [product_name], [price], [product_id], [stock_quantity], [image_url]
+        FROM [QLBH].[dbo].[Products]";
 
-                while (doc.Read())
-                {
-                    string idSP = doc["product_id"].ToString();
-                    string ten = doc["product_name"].ToString();
-                    decimal gia = Convert.ToDecimal(doc["price"]);
-                    int soLuongTon = Convert.ToInt32(doc["stock_quantity"]);
-                    string anh = doc["image_url"].ToString();
+            await DatabaseHelper.TaiVaHienThiSanPham(chuoiKetNoi, tatCaSPQuery, null, flowPanelSanPham);
 
-                    var oSanPham = new SanPhamItem
-                    {
-                        idSP = idSP,
-                        TenSanPham = ten,
-                        Gia = gia,
-                        SoLuongTonKho = soLuongTon,
-                        DuongDanAnh = anh
-                    };
+            // 2. Tải sản phẩm 'Điện thoại'
+            string dienThoaiQuery = @"
+        SELECT [product_name], [price], [product_id], [stock_quantity], [image_url]
+        FROM [QLBH].[dbo].[Products]
+        WHERE [category_id] = @MaDanhMuc";
 
+            var dienThoaiParameters = new Dictionary<string, object>
+    {
+        { "@MaDanhMuc", "Điện thoại" }
+    };
 
-                    
-                    oSanPham.Margin = new Padding(5);
-                    flowPanelSanPham.Controls.Add(oSanPham);
-                }
+            await DatabaseHelper.TaiVaHienThiSanPham(chuoiKetNoi, dienThoaiQuery, dienThoaiParameters, flowDienThoai);
 
-                doc.Close();
-            }
-            flowDienThoai.Controls.Clear();
+            // 3. Tải sản phẩm 'Tai nghe
+            string taiNgheQuery = @"
+        SELECT [product_name], [price], [product_id], [stock_quantity], [image_url]
+        FROM [QLBH].[dbo].[Products]
+        WHERE [category_id] = @MaDanhMuc";
 
-            using (SqlConnection ketNoi = new SqlConnection(chuoiKetNoi))
-            {
-                string cauTruyVan = @"
+            // Tạo Dictionary cho tham số mới
+            var taiNgheLinhKienParameters = new Dictionary<string, object>
+    {
+        // Sử dụng giá trị bạn đã cung cấp
+        { "@MaDanhMuc", "Tai nghe" }
+    };
 
-                SELECT [product_name], [price], [product_id], [stock_quantity], [image_url]
+            await DatabaseHelper.TaiVaHienThiSanPham(chuoiKetNoi, taiNgheQuery, taiNgheLinhKienParameters, flowTaiNghe);
 
-                FROM [QLBH].[dbo].[Products]
+            // 3. Tải sản phẩm 'Tai nghe
+            string LinhKienQuery = @"
+        SELECT [product_name], [price], [product_id], [stock_quantity], [image_url]
+        FROM [QLBH].[dbo].[Products]
+        WHERE [category_id] = @MaDanhMuc";
 
-where [category_id] = N'Điện thoại'";
+            // Tạo Dictionary cho tham số mới
+            var LinhKienParameters = new Dictionary<string, object>
+    {
+        // Sử dụng giá trị bạn đã cung cấp
+        { "@MaDanhMuc", "Linh kiện" }
+    };
 
-                SqlCommand lenh = new SqlCommand(cauTruyVan, ketNoi);
-                ketNoi.Open();
-                SqlDataReader doc = await Task.Run(() => lenh.ExecuteReader());
-
-                while (doc.Read())
-                {
-                    string idSP = doc["product_id"].ToString();
-                    string ten = doc["product_name"].ToString();
-                    decimal gia = Convert.ToDecimal(doc["price"]);
-                    int soLuongTon = Convert.ToInt32(doc["stock_quantity"]);
-                    string anh = doc["image_url"].ToString();
-
-                    var oSanPham = new SanPhamItem
-                    {
-                        idSP = idSP,
-                        TenSanPham = ten,
-                        Gia = gia,
-                        SoLuongTonKho = soLuongTon,
-                        DuongDanAnh = anh
-                    };
-
-
-                   
-                    oSanPham.Margin = new Padding(5);
-                    flowDienThoai.Controls.Add(oSanPham);
-                }
-
-                doc.Close();
-            }
+            await DatabaseHelper.TaiVaHienThiSanPham(chuoiKetNoi, LinhKienQuery, LinhKienParameters, flowLinhKien);
         }
-
         // === TẢI GIỎ HÀNG TỪ SQL (ĐÃ SỬA LỖI TỔNG TIỀN) ===
         public async Task TaiGioHangTuSQL()
         {

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MyAccout));
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -59,7 +60,7 @@
             // 
             // btnCapNhat
             // 
-            this.btnCapNhat.BackColor = System.Drawing.Color.FromArgb(40, 167, 69);
+            this.btnCapNhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
             this.btnCapNhat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCapNhat.FlatAppearance.BorderSize = 0;
             this.btnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -77,10 +78,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.label1.Location = new System.Drawing.Point(200, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(400, 37);
+            this.label1.Size = new System.Drawing.Size(367, 37);
             this.label1.TabIndex = 33;
             this.label1.Text = "👤 THÔNG TIN TÀI KHOẢN";
             // 
@@ -145,10 +146,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(73, 80, 87);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.label7.Location = new System.Drawing.Point(94, 285);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 20);
+            this.label7.Size = new System.Drawing.Size(83, 20);
             this.label7.TabIndex = 21;
             this.label7.Text = "📍 Địa chỉ:";
             // 
@@ -156,10 +157,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(73, 80, 87);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.label6.Location = new System.Drawing.Point(94, 253);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 20);
+            this.label6.Size = new System.Drawing.Size(74, 20);
             this.label6.TabIndex = 22;
             this.label6.Text = "✉ Email:";
             // 
@@ -167,10 +168,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(73, 80, 87);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.label5.Location = new System.Drawing.Point(94, 221);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 20);
+            this.label5.Size = new System.Drawing.Size(125, 20);
             this.label5.TabIndex = 23;
             this.label5.Text = "📞 Số điện thoại:";
             // 
@@ -178,10 +179,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(73, 80, 87);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.label4.Location = new System.Drawing.Point(94, 189);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 20);
+            this.label4.Size = new System.Drawing.Size(82, 20);
             this.label4.TabIndex = 24;
             this.label4.Text = "👤 Họ tên:";
             // 
@@ -189,10 +190,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(73, 80, 87);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.label3.Location = new System.Drawing.Point(94, 157);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 20);
+            this.label3.Size = new System.Drawing.Size(98, 20);
             this.label3.TabIndex = 25;
             this.label3.Text = "🔒 Mật khẩu:";
             // 
@@ -200,10 +201,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(73, 80, 87);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.label2.Location = new System.Drawing.Point(94, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 20);
+            this.label2.Size = new System.Drawing.Size(125, 20);
             this.label2.TabIndex = 27;
             this.label2.Text = "🔑 Tên tài khoản:";
             // 
@@ -228,25 +229,25 @@
             this.dgvDonHang.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDonHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(52, 58, 64);
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(52, 58, 64);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDonHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDonHang.ColumnHeadersHeight = 45;
             this.dgvDonHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-    this.order_id,
-    this.order_date,
-    this.full_name,
-    this.phone_number,
-    this.shipping_address,
-    this.total_amount,
-    this.order_status});
+            this.order_id,
+            this.order_date,
+            this.full_name,
+            this.phone_number,
+            this.shipping_address,
+            this.total_amount,
+            this.order_status});
             this.dgvDonHang.EnableHeadersVisualStyles = false;
-            this.dgvDonHang.GridColor = System.Drawing.Color.FromArgb(222, 226, 230);
+            this.dgvDonHang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
             this.dgvDonHang.Location = new System.Drawing.Point(0, 0);
             this.dgvDonHang.Name = "dgvDonHang";
             this.dgvDonHang.ReadOnly = true;
@@ -287,7 +288,6 @@
             this.phone_number.HeaderText = "SỐ ĐT";
             this.phone_number.Name = "phone_number";
             this.phone_number.ReadOnly = true;
-            this.phone_number.Width = 100;
             // 
             // shipping_address
             // 
@@ -317,10 +317,10 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.label8.Location = new System.Drawing.Point(210, 415);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(380, 37);
+            this.label8.Size = new System.Drawing.Size(322, 37);
             this.label8.TabIndex = 33;
             this.label8.Text = "🛒 LỊCH SỬ ĐƠN HÀNG";
             // 
@@ -328,7 +328,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(800, 720);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCapNhat);
@@ -347,6 +347,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MyAccout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "👤 Tài khoản của tôi";
@@ -354,6 +355,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonHang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

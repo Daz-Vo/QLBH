@@ -32,14 +32,15 @@ namespace QuanLyBanHang
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdmin));
             this.tabQuanLyTaiKhoan = new System.Windows.Forms.TabPage();
             this.btnXoa = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@ namespace QuanLyBanHang
             this.clpassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clphone_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabQuanLySanPham = new System.Windows.Forms.TabPage();
-            this.pbImage_url = new System.Windows.Forms.PictureBox();
             this.txtMauSP = new System.Windows.Forms.ComboBox();
             this.txtSoLuongSP = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -130,10 +130,10 @@ namespace QuanLyBanHang
             this.txtOrderId = new System.Windows.Forms.TextBox();
             this.rpBill = new Microsoft.Reporting.WinForms.ReportViewer();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.pbImage_url = new System.Windows.Forms.PictureBox();
             this.tabQuanLyTaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).BeginInit();
             this.tabQuanLySanPham.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage_url)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSSP)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabQuanLyDonHang.SuspendLayout();
@@ -142,6 +142,7 @@ namespace QuanLyBanHang
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder_Items)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSDH)).BeginInit();
             this.tabPageReport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage_url)).BeginInit();
             this.SuspendLayout();
             // 
             // tabQuanLyTaiKhoan
@@ -393,15 +394,15 @@ namespace QuanLyBanHang
             this.dgvTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvTaiKhoan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvTaiKhoan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTaiKhoan.ColumnHeadersHeight = 50;
             this.dgvTaiKhoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clfull_name,
@@ -482,18 +483,6 @@ namespace QuanLyBanHang
             this.tabQuanLySanPham.Size = new System.Drawing.Size(1212, 623);
             this.tabQuanLySanPham.TabIndex = 0;
             this.tabQuanLySanPham.Text = "📦 Quản lý sản phẩm";
-            // 
-            // pbImage_url
-            // 
-            this.pbImage_url.BackColor = System.Drawing.Color.White;
-            this.pbImage_url.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImage_url.InitialImage = null;
-            this.pbImage_url.Location = new System.Drawing.Point(1054, 424);
-            this.pbImage_url.Name = "pbImage_url";
-            this.pbImage_url.Size = new System.Drawing.Size(140, 130);
-            this.pbImage_url.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage_url.TabIndex = 28;
-            this.pbImage_url.TabStop = false;
             // 
             // txtMauSP
             // 
@@ -704,7 +693,7 @@ namespace QuanLyBanHang
             this.btnXoaSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoaSP.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnXoaSP.ForeColor = System.Drawing.Color.White;
-            this.btnXoaSP.Location = new System.Drawing.Point(1094, 566);
+            this.btnXoaSP.Location = new System.Drawing.Point(1094, 565);
             this.btnXoaSP.Name = "btnXoaSP";
             this.btnXoaSP.Size = new System.Drawing.Size(100, 42);
             this.btnXoaSP.TabIndex = 3;
@@ -720,15 +709,15 @@ namespace QuanLyBanHang
             this.dgvDSSP.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDSSP.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDSSP.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDSSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDSSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDSSP.ColumnHeadersHeight = 50;
             this.dgvDSSP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.clbarcode,
@@ -888,14 +877,14 @@ namespace QuanLyBanHang
             this.dgvOrder_Items.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvOrder_Items.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvOrder_Items.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrder_Items.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrder_Items.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrder_Items.ColumnHeadersHeight = 32;
             this.dgvOrder_Items.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colTenSP,
@@ -917,8 +906,8 @@ namespace QuanLyBanHang
             // colTenSP
             // 
             this.colTenSP.DataPropertyName = "TenSanPham";
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.colTenSP.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.colTenSP.DefaultCellStyle = dataGridViewCellStyle4;
             this.colTenSP.HeaderText = "Tên Sản Phẩm";
             this.colTenSP.Name = "colTenSP";
             this.colTenSP.ReadOnly = true;
@@ -927,9 +916,9 @@ namespace QuanLyBanHang
             // colSoLuong
             // 
             this.colSoLuong.DataPropertyName = "SoLuong";
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.colSoLuong.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.colSoLuong.DefaultCellStyle = dataGridViewCellStyle5;
             this.colSoLuong.HeaderText = "SL";
             this.colSoLuong.Name = "colSoLuong";
             this.colSoLuong.ReadOnly = true;
@@ -938,10 +927,10 @@ namespace QuanLyBanHang
             // colGia
             // 
             this.colGia.DataPropertyName = "GiaDonVi";
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle30.Format = "N0";
-            this.colGia.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.Format = "N0";
+            this.colGia.DefaultCellStyle = dataGridViewCellStyle6;
             this.colGia.HeaderText = "Giá Đơn Vị";
             this.colGia.Name = "colGia";
             this.colGia.ReadOnly = true;
@@ -950,10 +939,10 @@ namespace QuanLyBanHang
             // colThanhTien
             // 
             this.colThanhTien.DataPropertyName = "ThanhTien";
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle31.Format = "N0";
-            this.colThanhTien.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.Format = "N0";
+            this.colThanhTien.DefaultCellStyle = dataGridViewCellStyle7;
             this.colThanhTien.HeaderText = "Thành Tiền";
             this.colThanhTien.Name = "colThanhTien";
             this.colThanhTien.ReadOnly = true;
@@ -964,7 +953,7 @@ namespace QuanLyBanHang
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
-            this.label20.Location = new System.Drawing.Point(674, 65);
+            this.label20.Location = new System.Drawing.Point(674, 49);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(127, 19);
             this.label20.TabIndex = 57;
@@ -975,7 +964,7 @@ namespace QuanLyBanHang
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
-            this.label19.Location = new System.Drawing.Point(674, 88);
+            this.label19.Location = new System.Drawing.Point(674, 72);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(95, 19);
             this.label19.TabIndex = 55;
@@ -986,7 +975,7 @@ namespace QuanLyBanHang
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
-            this.label18.Location = new System.Drawing.Point(674, 27);
+            this.label18.Location = new System.Drawing.Point(674, 15);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(343, 20);
             this.label18.TabIndex = 53;
@@ -996,7 +985,7 @@ namespace QuanLyBanHang
             // 
             this.txtMaDH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMaDH.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtMaDH.Location = new System.Drawing.Point(784, 86);
+            this.txtMaDH.Location = new System.Drawing.Point(784, 70);
             this.txtMaDH.Name = "txtMaDH";
             this.txtMaDH.Size = new System.Drawing.Size(130, 27);
             this.txtMaDH.TabIndex = 54;
@@ -1011,7 +1000,7 @@ namespace QuanLyBanHang
             "Đang đóng hàng",
             "Đang trên đường vận chuyển",
             "Đang giao hàng"});
-            this.cbTrangThaiDH.Location = new System.Drawing.Point(941, 85);
+            this.cbTrangThaiDH.Location = new System.Drawing.Point(941, 69);
             this.cbTrangThaiDH.Name = "cbTrangThaiDH";
             this.cbTrangThaiDH.Size = new System.Drawing.Size(220, 28);
             this.cbTrangThaiDH.TabIndex = 47;
@@ -1021,7 +1010,7 @@ namespace QuanLyBanHang
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
-            this.label23.Location = new System.Drawing.Point(937, 63);
+            this.label23.Location = new System.Drawing.Point(937, 47);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(136, 19);
             this.label23.TabIndex = 38;
@@ -1121,15 +1110,15 @@ namespace QuanLyBanHang
             this.dgvDSDH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDSDH.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDSDH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle32.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDSDH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDSDH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDSDH.ColumnHeadersHeight = 50;
             this.dgvDSDH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.order_id,
@@ -1274,6 +1263,18 @@ namespace QuanLyBanHang
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // pbImage_url
+            // 
+            this.pbImage_url.BackColor = System.Drawing.Color.White;
+            this.pbImage_url.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImage_url.InitialImage = null;
+            this.pbImage_url.Location = new System.Drawing.Point(1054, 424);
+            this.pbImage_url.Name = "pbImage_url";
+            this.pbImage_url.Size = new System.Drawing.Size(140, 130);
+            this.pbImage_url.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage_url.TabIndex = 28;
+            this.pbImage_url.TabStop = false;
+            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1283,6 +1284,7 @@ namespace QuanLyBanHang
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1292,7 +1294,6 @@ namespace QuanLyBanHang
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).EndInit();
             this.tabQuanLySanPham.ResumeLayout(false);
             this.tabQuanLySanPham.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage_url)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSSP)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabQuanLyDonHang.ResumeLayout(false);
@@ -1304,6 +1305,7 @@ namespace QuanLyBanHang
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSDH)).EndInit();
             this.tabPageReport.ResumeLayout(false);
             this.tabPageReport.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage_url)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -68,7 +68,7 @@ namespace QuanLyBanHang
             PictureBox thumb = new PictureBox();
 
             // Cấu hình kích thước và kiểu dáng cho thumbnail
-            thumb.Size = new Size(60, 60);
+            thumb.Size = new Size(70, 70);
             thumb.SizeMode = PictureBoxSizeMode.Zoom;
             thumb.BorderStyle = BorderStyle.FixedSingle;
             thumb.Cursor = Cursors.Hand;

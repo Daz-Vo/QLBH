@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fRegister));
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -76,7 +77,6 @@
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.Location = new System.Drawing.Point(30, 455);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.txtAddress.Size = new System.Drawing.Size(540, 26);
             this.txtAddress.TabIndex = 6;
             // 
@@ -84,10 +84,10 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.label7.Location = new System.Drawing.Point(30, 430);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 19);
+            this.label7.Size = new System.Drawing.Size(78, 19);
             this.label7.TabIndex = 1;
             this.label7.Text = "📍 Địa chỉ";
             // 
@@ -98,7 +98,6 @@
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(30, 385);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.txtEmail.Size = new System.Drawing.Size(540, 26);
             this.txtEmail.TabIndex = 5;
             // 
@@ -106,10 +105,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.label6.Location = new System.Drawing.Point(30, 360);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 19);
+            this.label6.Size = new System.Drawing.Size(69, 19);
             this.label6.TabIndex = 1;
             this.label6.Text = "✉️ Email";
             // 
@@ -120,7 +119,6 @@
             this.txtPhone_Number.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone_Number.Location = new System.Drawing.Point(30, 315);
             this.txtPhone_Number.Name = "txtPhone_Number";
-            this.txtPhone_Number.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.txtPhone_Number.Size = new System.Drawing.Size(540, 26);
             this.txtPhone_Number.TabIndex = 4;
             // 
@@ -128,10 +126,10 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.label5.Location = new System.Drawing.Point(30, 290);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 19);
+            this.label5.Size = new System.Drawing.Size(121, 19);
             this.label5.TabIndex = 1;
             this.label5.Text = "📱 Số điện thoại";
             // 
@@ -142,7 +140,6 @@
             this.txtFull_Name.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFull_Name.Location = new System.Drawing.Point(30, 245);
             this.txtFull_Name.Name = "txtFull_Name";
-            this.txtFull_Name.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.txtFull_Name.Size = new System.Drawing.Size(540, 26);
             this.txtFull_Name.TabIndex = 3;
             // 
@@ -150,10 +147,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.label4.Location = new System.Drawing.Point(30, 220);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 19);
+            this.label4.Size = new System.Drawing.Size(98, 19);
             this.label4.TabIndex = 1;
             this.label4.Text = "👤 Họ và tên";
             // 
@@ -164,7 +161,6 @@
             this.txtPassWord.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassWord.Location = new System.Drawing.Point(30, 175);
             this.txtPassWord.Name = "txtPassWord";
-            this.txtPassWord.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.txtPassWord.PasswordChar = '●';
             this.txtPassWord.Size = new System.Drawing.Size(540, 26);
             this.txtPassWord.TabIndex = 2;
@@ -173,10 +169,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.label3.Location = new System.Drawing.Point(30, 150);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 19);
+            this.label3.Size = new System.Drawing.Size(95, 19);
             this.label3.TabIndex = 1;
             this.label3.Text = "🔒 Mật khẩu";
             // 
@@ -187,7 +183,6 @@
             this.txtUserName.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserName.Location = new System.Drawing.Point(30, 105);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
             this.txtUserName.Size = new System.Drawing.Size(540, 26);
             this.txtUserName.TabIndex = 1;
             // 
@@ -195,10 +190,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(33, 37, 41);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.label2.Location = new System.Drawing.Point(30, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 19);
+            this.label2.Size = new System.Drawing.Size(122, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "👨 Tên tài khoản";
             // 
@@ -206,7 +201,7 @@
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(0, 123, 255);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
             this.label1.Location = new System.Drawing.Point(30, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(540, 35);
@@ -216,7 +211,7 @@
             // 
             // txtRegister
             // 
-            this.txtRegister.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
+            this.txtRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
             this.txtRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.txtRegister.FlatAppearance.BorderSize = 0;
             this.txtRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -234,13 +229,13 @@
             // 
             this.btnLogin.BackColor = System.Drawing.Color.White;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 123, 255);
+            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
             this.btnLogin.FlatAppearance.BorderSize = 2;
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(230, 240, 255);
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(240, 248, 255);
+            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(0, 123, 255);
+            this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
             this.btnLogin.Location = new System.Drawing.Point(540, 625);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(110, 38);
@@ -254,13 +249,14 @@
             this.AcceptButton = this.txtRegister;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(240, 242, 245);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(242)))), ((int)(((byte)(245)))));
             this.ClientSize = new System.Drawing.Size(700, 680);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtRegister);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "fRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
