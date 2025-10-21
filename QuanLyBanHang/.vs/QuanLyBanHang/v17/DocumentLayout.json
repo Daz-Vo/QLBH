@@ -15,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|c:\\users\\vovan\\onedrive\\desktop\\git_qlbh\\quanlybanhang\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -54,19 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d84ee353-0bef-5a41-a649-8f89aca5d84d}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
@@ -78,8 +70,7 @@
               "RelativeToolTip": "DatabaseHelper.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAlwC4AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T17:18:55.146Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-21T17:18:55.146Z"
             },
             {
               "$type": "Document",
@@ -125,7 +116,7 @@
               "RelativeDocumentMoniker": "Register.cs",
               "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Register.cs",
               "RelativeToolTip": "Register.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-21T16:04:46.599Z",
               "EditorCaption": ""
@@ -140,8 +131,7 @@
               "RelativeToolTip": "Login.cs",
               "ViewState": "AgIAAD8AAAAAAAAAAAAAAFMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T15:56:41.227Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-21T15:56:41.227Z"
             },
             {
               "$type": "Document",
@@ -152,8 +142,7 @@
               "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Login.cs [Design]",
               "RelativeToolTip": "Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T15:56:33.008Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-21T15:56:33.008Z"
             },
             {
               "$type": "Document",
@@ -164,8 +153,7 @@
               "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\MyAccout.cs [Design]",
               "RelativeToolTip": "MyAccout.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T11:59:13.631Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-19T11:59:13.631Z"
             },
             {
               "$type": "Document",
@@ -177,8 +165,7 @@
               "RelativeToolTip": "MyAccout.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-19T11:59:16.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-19T11:59:16.516Z"
             },
             {
               "$type": "Document",

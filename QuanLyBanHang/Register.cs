@@ -151,6 +151,8 @@ namespace QuanLyBanHang
                 {
                     new SqlParameter("@username", username),
                     new SqlParameter("@password", DatabaseHelper.HashPassword(password)),
+     
+
                     new SqlParameter("@email", email),
                     new SqlParameter("@fullname", fullname),
                     new SqlParameter("@phone", phone),
@@ -173,6 +175,7 @@ namespace QuanLyBanHang
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
 

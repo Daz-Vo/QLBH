@@ -54,11 +54,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d84ee353-0bef-5a41-a649-8f89aca5d84d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -121,7 +125,7 @@
               "RelativeDocumentMoniker": "Register.cs",
               "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Register.cs",
               "RelativeToolTip": "Register.cs",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAhwFUAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-21T16:04:46.599Z",
               "EditorCaption": ""
@@ -132,8 +136,8 @@
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Login.cs",
               "RelativeDocumentMoniker": "Login.cs",
-              "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Login.cs*",
-              "RelativeToolTip": "Login.cs*",
+              "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Login.cs",
+              "RelativeToolTip": "Login.cs",
               "ViewState": "AgIAAD8AAAAAAAAAAAAAAFMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-21T15:56:41.227Z",
@@ -145,8 +149,8 @@
               "Title": "Login.cs [Design]",
               "DocumentMoniker": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Login.cs",
               "RelativeDocumentMoniker": "Login.cs",
-              "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Login.cs [Design]*",
-              "RelativeToolTip": "Login.cs [Design]*",
+              "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Login.cs [Design]",
+              "RelativeToolTip": "Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-21T15:56:33.008Z",
               "EditorCaption": " [Design]"
