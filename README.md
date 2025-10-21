@@ -7,7 +7,7 @@ B2: vào SSM (SQL)
 - chạy lệnh trong file "SQLQuery_QLBH.sql" để tạo CDSL và dữ liệu mẫu
 
 //kết nối code dự án với Database
-B3:
+B3: vài project
 
 - vào toàn bộ file App.config đổi "data source=Daz_Vo\SQLEXPRESS" thành máy mình (có 3 file giống nhau)
 - tương tự đổi data source ở file "DatabaseHelper.cs" (trong QuanLyBanHang.UI)
