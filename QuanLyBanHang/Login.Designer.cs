@@ -36,20 +36,24 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelPassBox = new System.Windows.Forms.Panel();
+            this.pictureBoxPassIcon = new System.Windows.Forms.PictureBox();
             this.txtPassWord = new System.Windows.Forms.TextBox();
+            this.btnHienMK = new System.Windows.Forms.PictureBox();
+            this.btnAnMK = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panelUserBox = new System.Windows.Forms.Panel();
+            this.pictureBoxUserIcon = new System.Windows.Forms.PictureBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBoxPassIcon = new System.Windows.Forms.PictureBox();
-            this.pictureBoxUserIcon = new System.Windows.Forms.PictureBox();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelPassBox.SuspendLayout();
-            this.panelUserBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPassIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHienMK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAnMK)).BeginInit();
+            this.panelUserBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -146,10 +150,23 @@
             this.panelPassBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelPassBox.Controls.Add(this.pictureBoxPassIcon);
             this.panelPassBox.Controls.Add(this.txtPassWord);
+            this.panelPassBox.Controls.Add(this.btnHienMK);
+            this.panelPassBox.Controls.Add(this.btnAnMK);
             this.panelPassBox.Location = new System.Drawing.Point(5, 120);
             this.panelPassBox.Name = "panelPassBox";
             this.panelPassBox.Size = new System.Drawing.Size(490, 45);
             this.panelPassBox.TabIndex = 11;
+            // 
+            // pictureBoxPassIcon
+            // 
+            this.pictureBoxPassIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPassIcon.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPassIcon.Image")));
+            this.pictureBoxPassIcon.Location = new System.Drawing.Point(12, 10);
+            this.pictureBoxPassIcon.Name = "pictureBoxPassIcon";
+            this.pictureBoxPassIcon.Size = new System.Drawing.Size(24, 24);
+            this.pictureBoxPassIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPassIcon.TabIndex = 12;
+            this.pictureBoxPassIcon.TabStop = false;
             // 
             // txtPassWord
             // 
@@ -159,9 +176,34 @@
             this.txtPassWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
             this.txtPassWord.Location = new System.Drawing.Point(50, 12);
             this.txtPassWord.Name = "txtPassWord";
-            this.txtPassWord.Size = new System.Drawing.Size(425, 20);
+            this.txtPassWord.Size = new System.Drawing.Size(405, 20);
             this.txtPassWord.TabIndex = 1;
             this.txtPassWord.UseSystemPasswordChar = true;
+            // 
+            // btnHienMK
+            // 
+            this.btnHienMK.BackColor = System.Drawing.Color.Transparent;
+            this.btnHienMK.Image = ((System.Drawing.Image)(resources.GetObject("btnHienMK.Image")));
+            this.btnHienMK.Location = new System.Drawing.Point(461, 10);
+            this.btnHienMK.Name = "btnHienMK";
+            this.btnHienMK.Size = new System.Drawing.Size(24, 24);
+            this.btnHienMK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnHienMK.TabIndex = 13;
+            this.btnHienMK.TabStop = false;
+            this.btnHienMK.Click += new System.EventHandler(this.btnHienMK_Click);
+            // 
+            // btnAnMK
+            // 
+            this.btnAnMK.BackColor = System.Drawing.Color.Transparent;
+            this.btnAnMK.Image = ((System.Drawing.Image)(resources.GetObject("btnAnMK.Image")));
+            this.btnAnMK.Location = new System.Drawing.Point(461, 10);
+            this.btnAnMK.Name = "btnAnMK";
+            this.btnAnMK.Size = new System.Drawing.Size(24, 24);
+            this.btnAnMK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAnMK.TabIndex = 14;
+            this.btnAnMK.TabStop = false;
+            this.btnAnMK.Visible = false;
+            this.btnAnMK.Click += new System.EventHandler(this.btnAnMK_Click);
             // 
             // label2
             // 
@@ -185,6 +227,17 @@
             this.panelUserBox.Size = new System.Drawing.Size(490, 45);
             this.panelUserBox.TabIndex = 10;
             // 
+            // pictureBoxUserIcon
+            // 
+            this.pictureBoxUserIcon.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxUserIcon.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUserIcon.Image")));
+            this.pictureBoxUserIcon.Location = new System.Drawing.Point(12, 10);
+            this.pictureBoxUserIcon.Name = "pictureBoxUserIcon";
+            this.pictureBoxUserIcon.Size = new System.Drawing.Size(24, 24);
+            this.pictureBoxUserIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxUserIcon.TabIndex = 11;
+            this.pictureBoxUserIcon.TabStop = false;
+            // 
             // txtUserName
             // 
             this.txtUserName.BackColor = System.Drawing.Color.White;
@@ -207,39 +260,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "👤 Tên tài khoản";
             // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
-            this.label3.Location = new System.Drawing.Point(40, 160);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(500, 50);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "🔐 ĐĂNG NHẬP";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBoxPassIcon
-            // 
-            this.pictureBoxPassIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxPassIcon.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPassIcon.Image")));
-            this.pictureBoxPassIcon.Location = new System.Drawing.Point(12, 10);
-            this.pictureBoxPassIcon.Name = "pictureBoxPassIcon";
-            this.pictureBoxPassIcon.Size = new System.Drawing.Size(24, 24);
-            this.pictureBoxPassIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxPassIcon.TabIndex = 12;
-            this.pictureBoxPassIcon.TabStop = false;
-            // 
-            // pictureBoxUserIcon
-            // 
-            this.pictureBoxUserIcon.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxUserIcon.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUserIcon.Image")));
-            this.pictureBoxUserIcon.Location = new System.Drawing.Point(12, 10);
-            this.pictureBoxUserIcon.Name = "pictureBoxUserIcon";
-            this.pictureBoxUserIcon.Size = new System.Drawing.Size(24, 24);
-            this.pictureBoxUserIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxUserIcon.TabIndex = 11;
-            this.pictureBoxUserIcon.TabStop = false;
-            // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
@@ -250,6 +270,17 @@
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 10;
             this.pictureBoxLogo.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.label3.Location = new System.Drawing.Point(40, 160);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(500, 50);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "🔐 ĐĂNG NHẬP";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // fLogin
             // 
@@ -272,9 +303,11 @@
             this.panel2.PerformLayout();
             this.panelPassBox.ResumeLayout(false);
             this.panelPassBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPassIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHienMK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAnMK)).EndInit();
             this.panelUserBox.ResumeLayout(false);
             this.panelUserBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPassIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
@@ -303,5 +336,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.PictureBox btnHienMK;
+        private System.Windows.Forms.PictureBox btnAnMK;
     }
 }

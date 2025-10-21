@@ -21,7 +21,7 @@ namespace QuanLyBanHang
         private fLogin _loginForm;
 
         // 2. Thêm tham số vào Constructor
-       
+
         public fRegister(fLogin loginForm)
         {
             InitializeComponent();
@@ -109,7 +109,7 @@ namespace QuanLyBanHang
 
         }
 
-   
+
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -117,6 +117,21 @@ namespace QuanLyBanHang
             this.Close();
             _loginForm.Show();
 
+        }
+
+        private void btnHienMK_Click(object sender, EventArgs e)
+        {
+
+            txtPassWord.UseSystemPasswordChar = false;
+            btnHienMK.Visible = false;
+            btnAnMK.Visible = true;
+        }
+
+        private void btnAnMK_Click(object sender, EventArgs e)
+        {
+            txtPassWord.UseSystemPasswordChar = true;
+            btnHienMK.Visible = true;
+            btnAnMK.Visible = false;
         }
     }
 }

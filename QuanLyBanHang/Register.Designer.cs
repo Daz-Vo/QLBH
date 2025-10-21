@@ -45,7 +45,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtRegister = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.btnHienMK = new System.Windows.Forms.PictureBox();
+            this.btnAnMK = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHienMK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAnMK)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -59,11 +63,13 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txtFull_Name);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtPassWord);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtUserName);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnHienMK);
+            this.panel1.Controls.Add(this.btnAnMK);
+            this.panel1.Controls.Add(this.txtPassWord);
             this.panel1.Location = new System.Drawing.Point(50, 30);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(30, 25, 30, 25);
@@ -161,7 +167,7 @@
             this.txtPassWord.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassWord.Location = new System.Drawing.Point(30, 175);
             this.txtPassWord.Name = "txtPassWord";
-            this.txtPassWord.PasswordChar = '●';
+            txtPassWord.UseSystemPasswordChar = true;
             this.txtPassWord.Size = new System.Drawing.Size(540, 26);
             this.txtPassWord.TabIndex = 2;
             // 
@@ -244,6 +250,31 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // btnHienMK
+            // 
+            this.btnHienMK.BackColor = System.Drawing.Color.Transparent;
+            this.btnHienMK.Image = ((System.Drawing.Image)(resources.GetObject("btnHienMK.Image")));
+            this.btnHienMK.Location = new System.Drawing.Point(542, 176);
+            this.btnHienMK.Name = "btnHienMK";
+            this.btnHienMK.Size = new System.Drawing.Size(24, 24);
+            this.btnHienMK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnHienMK.TabIndex = 14;
+            this.btnHienMK.TabStop = false;
+            this.btnHienMK.Click += new System.EventHandler(this.btnHienMK_Click);
+            // 
+            // btnAnMK
+            // 
+            this.btnAnMK.BackColor = System.Drawing.Color.Transparent;
+            this.btnAnMK.Image = ((System.Drawing.Image)(resources.GetObject("btnAnMK.Image")));
+            this.btnAnMK.Location = new System.Drawing.Point(541, 176);
+            this.btnAnMK.Name = "btnAnMK";
+            this.btnAnMK.Size = new System.Drawing.Size(24, 24);
+            this.btnAnMK.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAnMK.TabIndex = 15;
+            this.btnAnMK.TabStop = false;
+            this.btnAnMK.Visible = false;
+            this.btnAnMK.Click += new System.EventHandler(this.btnAnMK_Click);
+            // 
             // fRegister
             // 
             this.AcceptButton = this.txtRegister;
@@ -263,6 +294,8 @@
             this.Text = "Đăng ký tài khoản";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHienMK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAnMK)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -285,5 +318,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button txtRegister;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.PictureBox btnHienMK;
+        private System.Windows.Forms.PictureBox btnAnMK;
     }
 }

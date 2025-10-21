@@ -117,7 +117,19 @@ namespace QuanLyBanHang
 
         }
 
+        private void btnHienMK_Click(object sender, EventArgs e)
+        {
+            txtPassWord.UseSystemPasswordChar = false;
+            btnHienMK.Visible = false;
+            btnAnMK.Visible = true;
+        }
 
+        private void btnAnMK_Click(object sender, EventArgs e)
+        {
+            txtPassWord.UseSystemPasswordChar = true;
+            btnHienMK.Visible = true;
+            btnAnMK.Visible = false;
+        }
     }
 
 }
