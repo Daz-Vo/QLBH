@@ -4,7 +4,7 @@ B1: tải dự án về
 //cấu hình Database mẫu
 B2: vào SSM (SQL)
 
-- chạy lệnh trong file "SQLQuery_QLBH.sql" để tạo CDSL và dữ liệu mẫu
+- chạy lệnh trong file "SQLQuery_QLBH.sql" để tạo CSDL và dữ liệu mẫu
 
 //kết nối code dự án với Database
 B3: vài project
