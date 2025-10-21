@@ -1,104 +1,170 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Net;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+
 
 namespace QuanLyBanHang
 {
     public partial class fRegister : Form
     {
-
-        // 1. Tạo một trường để lưu trữ tham chiếu fLogin
         private fLogin _loginForm;
+        private Dictionary<TextBox, string> placeholders = new Dictionary<TextBox, string>();
 
-        // 2. Thêm tham số vào Constructor
-       
         public fRegister(fLogin loginForm)
         {
             InitializeComponent();
-            this._loginForm = loginForm; // Lưu lại tham chiếu
+            this._loginForm = loginForm;
         }
 
+
+        private string GetValue(TextBox txt)
+        {
+            if (txt.ForeColor == Color.Gray && txt.Text == placeholders[txt])
+                return "";
+            return txt.Text.Trim();
+        }
+
+        // ==========================
+        // NÚT ĐĂNG KÝ
+        // ==========================
         private void txtRegister_Click(object sender, EventArgs e)
         {
-            //1: Kiểm tra tài khoản
-            if (string.IsNullOrWhiteSpace(txtUserName.Text) ||
-                string.IsNullOrWhiteSpace(txtPassWord.Text) ||
-                string.IsNullOrWhiteSpace(txtEmail.Text) ||
-                string.IsNullOrWhiteSpace(txtFull_Name.Text) ||
-                string.IsNullOrWhiteSpace(txtPhone_Number.Text) ||
-                string.IsNullOrWhiteSpace(txtAddress.Text)
-                )
+            string username = GetValue(txtUserName);
+            string password = GetValue(txtPassWord);
+            string fullname = GetValue(txtFull_Name);
+            string phone = GetValue(txtPhone_Number);
+            string email = GetValue(txtEmail);
+            string address = GetValue(txtAddress);
+
+            // 1️⃣ Kiểm tra trống
+            if (string.IsNullOrWhiteSpace(username) ||
+                string.IsNullOrWhiteSpace(password) ||
+                string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(fullname) ||
+                string.IsNullOrWhiteSpace(phone) ||
+                string.IsNullOrWhiteSpace(address))
             {
                 MessageBox.Show("Vui lòng không để trống thông tin!", "Lỗi",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            //2: Kiem tra tài khoản đã tạo hay chưa          
-            string checkQuery = "SELECT COUNT(*) FROM Users WHERE username = @username";
-            var checkParams = new[] { new SqlParameter("@username", txtUserName.Text.Trim()) };
+
+            // 2️⃣ Họ tên ≥ 3 ký tự
+            if (fullname.Length < 3)
+            {
+                MessageBox.Show("Họ tên phải có ít nhất 3 ký tự!", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtFull_Name.Focus();
+                return;
+            }
+
+            // 3️⃣ Mật khẩu ≥ 6 ký tự
+            if (password.Length < 8)
+            {
+                MessageBox.Show("Mật khẩu phải có ít nhất 8 ký tự!", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassWord.Focus();
+                return;
+            }
+            //Mật khẩu phải có chữ thường, chữ hoa, số và ký tự đặc biệt
+            bool hasLower = Regex.IsMatch(password, "[a-z]");
+            bool hasUpper = Regex.IsMatch(password, "[A-Z]");
+            bool hasDigit = Regex.IsMatch(password, "[0-9]");
+            bool hasSpecial = Regex.IsMatch(password, @"[!@#$%^&*(),.?""':{}|<>]");
+
+            if (!hasLower || !hasUpper || !hasDigit || !hasSpecial)
+            {
+                MessageBox.Show("Mật khẩu bao gồm:\n- Chữ thường: abc...\n- Chữ hoa: ABC...\n- Số: 123...\n- Ký tự đặc biệt: @!#$...",
+                                "Mật khẩu yếu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassWord.Focus();
+                return;
+            }
+
+            //Kiểm tra đầu số SĐT hợp lệ (theo nhà mạng VN)
+            string regexVNPhone = @"^(03[2-9]|05[5|6|8|9]|07[0-9]|08[1-9]|09[0-9])\d{7}$";
+            if (!Regex.IsMatch(phone, regexVNPhone))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ! Vui lòng nhập đúng đầu số của Việt Nam.", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPhone_Number.Focus();
+                return;
+            }
+
+            // 4️⃣ SĐT = 10 số
+            if (!Regex.IsMatch(phone, @"^\d{10}$"))
+            {
+                MessageBox.Show("Số điện thoại phải gồm đúng 10 chữ số!", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPhone_Number.Focus();
+                return;
+            }
+            // 5️⃣ Email đúng định dạng @gmail.com
+            if (!Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@gmail\.com$"))
+            {
+                MessageBox.Show("Email không hợp lệ! Vui lòng nhập dạng: ten@gmail.com", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtEmail.Focus();
+                return;
+            }
+
+            // 6️⃣ Kiểm tra username trùng
+            string checkUserQuery = "SELECT COUNT(*) FROM Users WHERE username = @username";
+            var userParams = new[] { new SqlParameter("@username", username) };
 
             try
             {
-                int count = (int)DatabaseHelper.ExecuteScalar(checkQuery, checkParams);
-
-                if (count > 0)
+                int userCount = (int)DatabaseHelper.ExecuteScalar(checkUserQuery, userParams);
+                if (userCount > 0)
                 {
-                    // Username đã tồn tại
                     MessageBox.Show("Tên đăng nhập này đã tồn tại! Vui lòng chọn tên khác.", "Lỗi",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtUserName.SelectAll();
                     txtUserName.Focus();
                     return;
                 }
-                //2: Kiem tra tài khoản đã tạo hay chưa          
-                string checkQuerysdt = "SELECT COUNT(*) FROM Users WHERE phone_number = @phone_number";
-                var checkParamssdt = new[] { new SqlParameter("@phone_number", txtPhone_Number.Text.Trim()) };
 
-                int countsdt = (int)DatabaseHelper.ExecuteScalar(checkQuerysdt, checkParamssdt);
+                // 7️⃣ Kiểm tra SĐT trùng
+                string checkPhoneQuery = "SELECT COUNT(*) FROM Users WHERE phone_number = @phone";
+                var phoneParams = new[] { new SqlParameter("@phone", phone) };
+                int phoneCount = (int)DatabaseHelper.ExecuteScalar(checkPhoneQuery, phoneParams);
 
-                if (countsdt > 0)
+                if (phoneCount > 0)
                 {
-                    //sdt da ton tai
-                    MessageBox.Show("Số điện thoại này đã được đăng ký, vui lòng dùng số khác", "Lỗi",
+                    MessageBox.Show("Số điện thoại này đã được đăng ký, vui lòng dùng số khác.", "Lỗi",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtPhone_Number.SelectAll();
                     txtPhone_Number.Focus();
                     return;
                 }
 
-                //3: Nếu chưa tồn tại → chèn mới
+                // 8️⃣ Lưu vào database
                 string insertQuery = @"
-            INSERT INTO Users (username, password, email, full_name, phone_number, address, authority) 
-            VALUES (@username, @password, @email, @full_name, @phone_number, @address, 0)";
+                    INSERT INTO Users (username, password, email, full_name, phone_number, address, authority) 
+                    VALUES (@username, @password, @email, @fullname, @phone, @address, 0)";
 
                 var insertParams = new[]
-        {
-            new SqlParameter("@username", txtUserName.Text.Trim()),
-            new SqlParameter("@password", txtPassWord.Text.Trim()), // ⚠️ Hash nếu cần!
-            new SqlParameter("@email", txtEmail.Text.Trim()),
-            new SqlParameter("@full_name", txtFull_Name.Text.Trim()),
-            new SqlParameter("@phone_number", txtPhone_Number.Text.Trim()),
-            new SqlParameter("@address", txtAddress.Text.Trim())
-        };
+                {
+                    new SqlParameter("@username", username),
+                    new SqlParameter("@password", HashPassword(password)), // ⚠️ Có thể hash nếu cần
+                    new SqlParameter("@email", email),
+                    new SqlParameter("@fullname", fullname),
+                    new SqlParameter("@phone", phone),
+                    new SqlParameter("@address", address)
+                };
 
-                int rowsAffected = DatabaseHelper.ExecuteNonQuery(insertQuery, insertParams);
+                int rows = DatabaseHelper.ExecuteNonQuery(insertQuery, insertParams);
 
-                if (rowsAffected > 0)
+                if (rows > 0)
                 {
                     MessageBox.Show("Đăng ký thành công!", "Thành công",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // tắt form đăng ký  
-
+                    this.Close();
+                    _loginForm.Show();
                 }
             }
             catch (Exception ex)
@@ -106,17 +172,36 @@ namespace QuanLyBanHang
                 MessageBox.Show("Lỗi hệ thống: " + ex.Message, "Lỗi",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
-   
+        // 🔐 Hàm hash mật khẩu bằng SHA-256
+        private string HashPassword(string password)
+        {
+            if (string.IsNullOrEmpty(password))
+                return string.Empty;
 
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(password);
+                byte[] hash = sha256.ComputeHash(bytes);
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in hash)
+                {
+                    sb.Append(b.ToString("x2")); // viết thường hex, an toàn cho DB
+                }
+                return sb.ToString();
+            }
+        }
+
+
+
+        // ==========================
+        // NÚT QUAY LẠI ĐĂNG NHẬP
+        // ==========================
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // Đóng form đăng ký
             this.Close();
             _loginForm.Show();
-
         }
     }
 }
