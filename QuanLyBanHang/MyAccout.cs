@@ -46,7 +46,7 @@ namespace QuanLyBanHang
                 DataRow row = dt.Rows[0];
                 // Gán dữ liệu vào TextBox
                 txtUserName.Text = row["username"].ToString();
-                txtPassWord.Text = row["password"].ToString();
+    
                 txtFull_Name.Text = row["full_name"].ToString();
                 txtPhone_Number.Text = row["phone_number"].ToString();
                 txtEmail.Text = row["email"].ToString();
@@ -101,7 +101,7 @@ namespace QuanLyBanHang
 
                 // Lấy giá trị mới và cũ
                 string newUsername = txtUserName.Text.Trim();
-                string newPassword = txtPassWord.Text.Trim();
+                
                 string oldUsername = row["username"].ToString();
 
                 // 3. XÂY DỰNG UPDATE
@@ -158,12 +158,7 @@ namespace QuanLyBanHang
                     updateParams.Add(new SqlParameter("@address", txtAddress.Text.Trim()));
                 }
 
-                // KIỂM TRA MẬT KHẨU: chỉ cập nhật nếu có nhập VÀ khác mật khẩu cũ
-                if (!string.IsNullOrEmpty(newPassword) && newPassword != row["password"].ToString())
-                {
-                    updateFields.Add("password = @password");
-                    updateParams.Add(new SqlParameter("@password", newPassword));
-                }
+
 
                 // 4. THỰC HIỆN CẬP NHẬT
                 if (updateFields.Count == 0)

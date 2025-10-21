@@ -3,23 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\myaccout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:myaccout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\myaccout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:myaccout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|c:\\users\\vovan\\onedrive\\desktop\\git_qlbh\\quanlybanhang\\register.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:register.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|c:\\users\\vovan\\onedrive\\desktop\\git_qlbh\\quanlybanhang\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|c:\\users\\vovan\\onedrive\\desktop\\git_qlbh\\quanlybanhang\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:register.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -27,16 +15,36 @@
       "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|c:\\users\\vovan\\onedrive\\desktop\\git_qlbh\\quanlybanhang\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\myaccout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:myaccout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\register.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:register.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.csproj|C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.csproj|solutionrelative:home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.csproj|C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.csproj|solutionrelative:home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\myaccout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.UI.csproj|solutionrelative:myaccout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.csproj|C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E0551AA-BCEA-4DEE-B09B-F6528BCD45CF}|QuanLyBanHang.csproj|solutionrelative:home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,7 +70,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "DatabaseHelper.cs",
+              "DocumentMoniker": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\DatabaseHelper.cs",
+              "RelativeDocumentMoniker": "DatabaseHelper.cs",
+              "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\DatabaseHelper.cs",
+              "RelativeToolTip": "DatabaseHelper.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAlwC4AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T17:18:55.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Register.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Register.cs",
+              "RelativeDocumentMoniker": "Register.cs",
+              "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Register.cs [Design]",
+              "RelativeToolTip": "Register.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T15:56:44.054Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Home.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Home.cs",
+              "RelativeDocumentMoniker": "Home.cs",
+              "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Home.cs [Design]",
+              "RelativeToolTip": "Home.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T16:57:54.071Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Register.Designer.cs",
               "DocumentMoniker": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Register.Designer.cs",
               "RelativeDocumentMoniker": "Register.Designer.cs",
@@ -75,38 +119,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Register.cs",
               "DocumentMoniker": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Register.cs",
               "RelativeDocumentMoniker": "Register.cs",
               "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Register.cs",
               "RelativeToolTip": "Register.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAAAIMAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-21T16:04:46.599Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Register.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Register.cs",
-              "RelativeDocumentMoniker": "Register.cs",
-              "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Register.cs [Design]",
-              "RelativeToolTip": "Register.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T15:56:44.054Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Login.cs",
               "RelativeDocumentMoniker": "Login.cs",
               "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Login.cs",
               "RelativeToolTip": "Login.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAIAAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAFMAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-21T15:56:41.227Z",
               "EditorCaption": ""
@@ -125,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "MyAccout.cs [Design]",
               "DocumentMoniker": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\MyAccout.cs",
               "RelativeDocumentMoniker": "MyAccout.cs",
@@ -137,20 +169,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "MyAccout.cs",
               "DocumentMoniker": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\MyAccout.cs",
               "RelativeDocumentMoniker": "MyAccout.cs",
               "ToolTip": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\MyAccout.cs",
               "RelativeToolTip": "MyAccout.cs",
-              "ViewState": "AgIAAPAAAAAAAAAAAAAAAO8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-19T11:59:16.516Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Home.cs",
               "DocumentMoniker": "C:\\Users\\vovan\\OneDrive\\Desktop\\Git_QLBH\\QuanLyBanHang\\Home.cs",
               "RelativeDocumentMoniker": "Home.cs",

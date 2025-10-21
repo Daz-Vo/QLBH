@@ -6,6 +6,7 @@ using System.Data.Entity.Validation;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -674,7 +675,24 @@ WHERE order_id = '{id_DH_lay_tu}'";
             flowPanel.Controls.AddRange(sanPhamItems.ToArray());
         }
 
+        // 🔐 Hàm hash mật khẩu bằng SHA-256
+        public static string HashPassword(string password)
+        {
+            if (string.IsNullOrEmpty(password))
+                return string.Empty;
 
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(password);
+                byte[] hash = sha256.ComputeHash(bytes);
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in hash)
+                {
+                    sb.Append(b.ToString("x2")); // viết thường hex, an toàn cho DB
+                }
+                return sb.ToString();
+            }
+        }
 
 
 

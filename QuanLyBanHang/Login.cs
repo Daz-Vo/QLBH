@@ -75,16 +75,18 @@ namespace QuanLyBanHang
                     MessageBox.Show("Vui lòng nhập tên đăng nhập và mật khẩu!");
                     return;
                 }
-                
 
-                string query = "SELECT COUNT(*) FROM Users WHERE username = @user AND password = @pass";
-                var parameters = new[]
-                {
-                new SqlParameter("@user", username),
-                new SqlParameter("@pass", password)
-                };
 
-                int count = (int)DatabaseHelper.ExecuteScalar(query, parameters);
+            // Đã sửa: Thay @pass thành @password
+            string query = "SELECT COUNT(*) FROM Users WHERE username = @user AND password = @password";
+
+            var parameters = new[]
+            {
+            new SqlParameter("@user", username),
+            new SqlParameter("@password", DatabaseHelper.HashPassword(password)),
+            };
+
+            int count = (int)DatabaseHelper.ExecuteScalar(query, parameters);
                 if (count > 0)
                 {
                 
