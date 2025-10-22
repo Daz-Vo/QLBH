@@ -32,6 +32,8 @@ namespace QuanLyBanHang
             LoadAcountList();
             LoadProductList();
             LoadOrderList(fullQuery);
+            
+           
 
 
             dgvTaiKhoan.SelectionChanged += DgvTaiKhoan_SelectionChanged;
@@ -189,7 +191,7 @@ namespace QuanLyBanHang
 
                     if (rowsAffected1 > 0)
                     {
-                        MessageBox.Show("Cập nhật tài khoản thành công!");
+                        MessageBox.Show("Cập nhật thành công!");
                         LoadAcountList();
                     }
                     else
@@ -321,15 +323,19 @@ namespace QuanLyBanHang
             try
             {
                 string query = "SELECT barcode , category_id , product_name , description , price , stock_quantity , image_url FROM Products";
-                //DataProvider Provider = new DataProvider();
                 dgvDSSP.DataSource = DatabaseHelper.ExecuteQuery(query);
-
-
+               
             }
             catch (SqlException ex)
             {
                 MessageBox.Show("Lỗi truy vấn sanh sách sản phẩm " + ex.Message);
             }
+           
+        }
+        private void btnClearBox_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxesSP();
+            pbImage_url.Image = null;
         }
 
 
@@ -351,6 +357,7 @@ namespace QuanLyBanHang
 
         private async Task HienThiThongTinSanPham(string barcode)
         {
+            
             if (string.IsNullOrEmpty(barcode))
             {
                 ClearTextBoxesSP();
@@ -370,7 +377,7 @@ namespace QuanLyBanHang
                 DataTable dt = DatabaseHelper.ExecuteQuery(query, parameters);
 
                 if (dt.Rows.Count > 0)
-                {
+                {                   
                     DataRow row = dt.Rows[0];
                     txtTenSP.Text = row["product_name"].ToString();
                     txtGiaSP.Text = row["price"].ToString();
@@ -570,7 +577,7 @@ namespace QuanLyBanHang
 
                         if (rowsAffected1 > 0)
                         {
-                            MessageBox.Show("Cập nhật tài khoản thành công!");
+                            MessageBox.Show("Cập nhật thành công!");
                             LoadProductList();
                         }
                         else
@@ -650,14 +657,15 @@ namespace QuanLyBanHang
         }
 
         string fullQuery = @"
-SELECT 
-order_id,
-order_date,
-full_name,
-phone_number,
-shipping_address,
-total_amount,
-order_status
+ SELECT 
+    order_id,
+    -- Dùng FORMAT để định dạng ngày giờ theo yêu cầu
+    FORMAT(order_date, 'dd/MM/yyyy HH:mm') AS order_date, 
+    full_name,
+    phone_number,
+    shipping_address,
+    total_amount,
+    order_status
 FROM Orders 
 INNER JOIN Users ON Orders.user_id = Users.user_id";
 
@@ -707,9 +715,10 @@ INNER JOIN Users ON Orders.user_id = Users.user_id";
                 //tim danh sach don hang theo ma don hang
                 string order_id = txtTimDH.Text.Trim();
                 string QueryMDH = $@"
-    SELECT 
+ SELECT 
     order_id,
-    order_date,
+    -- Dùng FORMAT để định dạng ngày giờ theo yêu cầu
+    FORMAT(order_date, 'dd/MM/yyyy HH:mm') AS order_date, 
     full_name,
     phone_number,
     shipping_address,
@@ -725,17 +734,21 @@ INNER JOIN Users ON Orders.user_id = Users.user_id";
             {
                 string phone_number = txtTimDH.Text.Trim();
                 string QuerySDT = $@"
-    SELECT 
+ SELECT 
     order_id,
-    order_date,
+    -- Dùng FORMAT để định dạng ngày giờ theo yêu cầu
+    FORMAT(order_date, 'dd/MM/yyyy HH:mm') AS order_date, 
     full_name,
     phone_number,
     shipping_address,
     total_amount,
     order_status
-    FROM Orders 
-    INNER JOIN Users ON Orders.user_id = Users.user_id
-    WHERE phone_number = '{phone_number}'";
+FROM 
+    Orders 
+INNER JOIN 
+    Users ON Orders.user_id = Users.user_id
+WHERE 
+    phone_number = '{phone_number}'";
 
                 LoadOrderList(QuerySDT);
 
@@ -781,8 +794,29 @@ INNER JOIN Users ON Orders.user_id = Users.user_id";
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];
+
+                    // Lấy giá trị từ database, xử lý trường hợp DBNull
+                    string trangThaiDH = row["order_status"] != DBNull.Value
+                                            ? row["order_status"].ToString()
+                                            : string.Empty;
+
                     txtMaDH.Text = row["order_id"].ToString();
-                    cbTrangThaiDH.Text = row["order_status"].ToString();
+
+                    // Cải tiến: Tìm chỉ mục của giá trị trong danh sách Items
+                    int index = cbTrangThaiDH.Items.IndexOf(trangThaiDH);
+
+                    if (index != -1)
+                    {
+                        // Nếu tìm thấy, gán chỉ mục
+                        cbTrangThaiDH.SelectedIndex = index;
+                    }
+                    else
+                    {
+                        // Nếu không tìm thấy (giá trị database không khớp với Items)
+                        // Tùy chọn: Xóa Text hoặc giữ Text cũ
+                        cbTrangThaiDH.Text = string.Empty;
+                        // Hoặc xử lý lỗi: giá trị database không hợp lệ.
+                    }
 
                     using (var QLDB = new QLDB_DB())
                     {
@@ -895,7 +929,8 @@ INNER JOIN Users ON Orders.user_id = Users.user_id";
             string QueryMDH = $@"
     SELECT 
     order_id,
-    order_date,
+    -- Dùng FORMAT để định dạng ngày giờ theo yêu cầu
+    FORMAT(order_date, 'dd/MM/yyyy HH:mm') AS order_date, 
     full_name,
     phone_number,
     shipping_address,
@@ -962,6 +997,10 @@ INNER JOIN Users ON Orders.user_id = Users.user_id";
                 MessageBox.Show("Vui lòng nhập mã đơn hàng hợp lệ!");
             }
         }
+
+      
+
+      
     }
 
 }

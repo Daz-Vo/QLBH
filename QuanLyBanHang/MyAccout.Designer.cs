@@ -64,7 +64,7 @@
             this.btnCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCapNhat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnCapNhat.ForeColor = System.Drawing.Color.White;
-            this.btnCapNhat.Location = new System.Drawing.Point(315, 284);
+            this.btnCapNhat.Location = new System.Drawing.Point(315, 241);
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(170, 45);
             this.btnCapNhat.TabIndex = 20;
@@ -87,7 +87,7 @@
             // 
             this.txtAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtAddress.Location = new System.Drawing.Point(219, 250);
+            this.txtAddress.Location = new System.Drawing.Point(219, 207);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(487, 27);
             this.txtAddress.TabIndex = 32;
@@ -96,7 +96,7 @@
             // 
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtEmail.Location = new System.Drawing.Point(219, 218);
+            this.txtEmail.Location = new System.Drawing.Point(219, 175);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(487, 27);
             this.txtEmail.TabIndex = 31;
@@ -105,7 +105,7 @@
             // 
             this.txtPhone_Number.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPhone_Number.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtPhone_Number.Location = new System.Drawing.Point(219, 186);
+            this.txtPhone_Number.Location = new System.Drawing.Point(219, 143);
             this.txtPhone_Number.Name = "txtPhone_Number";
             this.txtPhone_Number.Size = new System.Drawing.Size(487, 27);
             this.txtPhone_Number.TabIndex = 30;
@@ -114,7 +114,7 @@
             // 
             this.txtFull_Name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFull_Name.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtFull_Name.Location = new System.Drawing.Point(219, 154);
+            this.txtFull_Name.Location = new System.Drawing.Point(219, 111);
             this.txtFull_Name.Name = "txtFull_Name";
             this.txtFull_Name.Size = new System.Drawing.Size(487, 27);
             this.txtFull_Name.TabIndex = 29;
@@ -124,7 +124,7 @@
             this.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUserName.Enabled = false;
             this.txtUserName.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtUserName.Location = new System.Drawing.Point(219, 122);
+            this.txtUserName.Location = new System.Drawing.Point(219, 79);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.ReadOnly = true;
             this.txtUserName.Size = new System.Drawing.Size(487, 27);
@@ -135,7 +135,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
-            this.label7.Location = new System.Drawing.Point(94, 253);
+            this.label7.Location = new System.Drawing.Point(94, 210);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 20);
             this.label7.TabIndex = 21;
@@ -146,7 +146,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
-            this.label6.Location = new System.Drawing.Point(94, 221);
+            this.label6.Location = new System.Drawing.Point(94, 178);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 20);
             this.label6.TabIndex = 22;
@@ -157,7 +157,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
-            this.label5.Location = new System.Drawing.Point(94, 189);
+            this.label5.Location = new System.Drawing.Point(94, 146);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 20);
             this.label5.TabIndex = 23;
@@ -168,7 +168,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
-            this.label4.Location = new System.Drawing.Point(94, 157);
+            this.label4.Location = new System.Drawing.Point(94, 114);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 20);
             this.label4.TabIndex = 24;
@@ -179,7 +179,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(80)))), ((int)(((byte)(87)))));
-            this.label2.Location = new System.Drawing.Point(94, 125);
+            this.label2.Location = new System.Drawing.Point(94, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 20);
             this.label2.TabIndex = 27;
@@ -232,7 +232,7 @@
             this.dgvDonHang.RowHeadersVisible = false;
             this.dgvDonHang.RowTemplate.Height = 35;
             this.dgvDonHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDonHang.Size = new System.Drawing.Size(606, 245);
+            this.dgvDonHang.Size = new System.Drawing.Size(606, 221);
             this.dgvDonHang.TabIndex = 1;
             // 
             // order_id

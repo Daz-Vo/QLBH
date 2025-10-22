@@ -110,6 +110,11 @@ namespace QuanLyBanHang
                 MessageBox.Show("Vui lòng đăng nhập", "Chưa đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (Convert.ToInt16(txtSoLuong.Text) <=0)
+            {
+                MessageBox.Show("Vui lòng nhập số lượng lớn hơn 0", "Lỗi số lượng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             DatabaseHelper.ThemVaoGioHang(Convert.ToInt32(this.idSP), Convert.ToInt32(txtSoLuong.Text.Trim()));
 

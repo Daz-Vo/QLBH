@@ -21,11 +21,11 @@ namespace QuanLyBanHang
 
         public static int LayIDuser(string username, string password)
         {
-            string query = "SELECT user_id FROM dbo.Users WHERE username = @user AND password = @pass";
+            string query = "SELECT user_id FROM dbo.Users WHERE username = @user AND password = @password";
             var parameters = new[]
             {
                 new SqlParameter("@user", username),
-                new SqlParameter("@pass", password)
+                new SqlParameter("@password", DatabaseHelper.HashPassword(password)),
             };
             object result = DatabaseHelper.ExecuteScalar(query, parameters);
             if (result != null && int.TryParse(result.ToString(), out int userId))
@@ -37,11 +37,11 @@ namespace QuanLyBanHang
 
         public static int LayQuyenuser(string username, string password)
         {
-            string query = "SELECT authority FROM dbo.Users WHERE username = @user AND password = @pass";
+            string query = "SELECT authority FROM dbo.Users WHERE username = @user AND password = @password";
             var parameters = new[]
             {
                 new SqlParameter("@user", username),
-                new SqlParameter("@pass", password)
+                new SqlParameter("@password", password),
             };
             object result = DatabaseHelper.ExecuteScalar(query, parameters);
 
@@ -92,7 +92,7 @@ namespace QuanLyBanHang
                 
                 // Lấy UserId và gán vào biến static
                 UserId = LayIDuser(username, password);
-                QuyenUser = LayQuyenuser(username, password);
+                QuyenUser = LayQuyenuser(username, DatabaseHelper.HashPassword(password));
                 // hiển thi fHome
                 this.Hide();
                 fHome fHome = new fHome(this);

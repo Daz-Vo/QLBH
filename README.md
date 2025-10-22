@@ -13,3 +13,8 @@ B3: vài project
 - tương tự đổi data source ở file "DatabaseHelper.cs" (trong QuanLyBanHang.UI)
 
 B4: Chạy dự án
+
+- Đăng ký Tk mới
+- Vào SSM (SQL) => vào bảng Users đổi cột authority của tk vừa tại để tk có quyền admin.
+  (authority mặc định khi mới đk = 0 là user bình thường chỉ có thể mua hàng, 1 là user admin có thể vào trang quản lý sản phẩm, đơn hàng....)
+- Đăng nhập.

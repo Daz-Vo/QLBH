@@ -67,6 +67,8 @@ namespace QuanLyBanHang
             this.clpassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clphone_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabQuanLySanPham = new System.Windows.Forms.TabPage();
+            this.btnClearBox = new System.Windows.Forms.Button();
+            this.pbImage_url = new System.Windows.Forms.PictureBox();
             this.txtMauSP = new System.Windows.Forms.ComboBox();
             this.txtSoLuongSP = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -130,10 +132,10 @@ namespace QuanLyBanHang
             this.txtOrderId = new System.Windows.Forms.TextBox();
             this.rpBill = new Microsoft.Reporting.WinForms.ReportViewer();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.pbImage_url = new System.Windows.Forms.PictureBox();
             this.tabQuanLyTaiKhoan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).BeginInit();
             this.tabQuanLySanPham.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage_url)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSSP)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabQuanLyDonHang.SuspendLayout();
@@ -142,7 +144,6 @@ namespace QuanLyBanHang
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder_Items)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSDH)).BeginInit();
             this.tabPageReport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage_url)).BeginInit();
             this.SuspendLayout();
             // 
             // tabQuanLyTaiKhoan
@@ -414,9 +415,10 @@ namespace QuanLyBanHang
             this.dgvTaiKhoan.Location = new System.Drawing.Point(18, 3);
             this.dgvTaiKhoan.Name = "dgvTaiKhoan";
             this.dgvTaiKhoan.ReadOnly = true;
-            this.dgvTaiKhoan.RowHeadersVisible = false;
+            this.dgvTaiKhoan.RowHeadersVisible = true;
             this.dgvTaiKhoan.RowTemplate.Height = 40;
-            this.dgvTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            //this.dgvTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTaiKhoan.ClearSelection();  // ✅ Ẩn hiện cột mặc định đầu tiên
             this.dgvTaiKhoan.Size = new System.Drawing.Size(550, 604);
             this.dgvTaiKhoan.TabIndex = 1;
             // 
@@ -455,6 +457,7 @@ namespace QuanLyBanHang
             // tabQuanLySanPham
             // 
             this.tabQuanLySanPham.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(249)))), ((int)(((byte)(250)))));
+            this.tabQuanLySanPham.Controls.Add(this.btnClearBox);
             this.tabQuanLySanPham.Controls.Add(this.pbImage_url);
             this.tabQuanLySanPham.Controls.Add(this.txtMauSP);
             this.tabQuanLySanPham.Controls.Add(this.txtSoLuongSP);
@@ -483,6 +486,34 @@ namespace QuanLyBanHang
             this.tabQuanLySanPham.Size = new System.Drawing.Size(1212, 623);
             this.tabQuanLySanPham.TabIndex = 0;
             this.tabQuanLySanPham.Text = "📦 Quản lý sản phẩm";
+            // 
+            // btnClearBox
+            // 
+            this.btnClearBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
+            this.btnClearBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClearBox.FlatAppearance.BorderSize = 0;
+            this.btnClearBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnClearBox.ForeColor = System.Drawing.Color.White;
+            this.btnClearBox.Location = new System.Drawing.Point(704, 433);
+            this.btnClearBox.Name = "btnClearBox";
+            this.btnClearBox.Size = new System.Drawing.Size(36, 35);
+            this.btnClearBox.TabIndex = 53;
+            this.btnClearBox.Text = "🔄";
+            this.btnClearBox.UseVisualStyleBackColor = false;
+            this.btnClearBox.Click += new System.EventHandler(this.btnClearBox_Click);
+            // 
+            // pbImage_url
+            // 
+            this.pbImage_url.BackColor = System.Drawing.Color.White;
+            this.pbImage_url.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImage_url.InitialImage = null;
+            this.pbImage_url.Location = new System.Drawing.Point(1054, 424);
+            this.pbImage_url.Name = "pbImage_url";
+            this.pbImage_url.Size = new System.Drawing.Size(140, 130);
+            this.pbImage_url.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage_url.TabIndex = 28;
+            this.pbImage_url.TabStop = false;
             // 
             // txtMauSP
             // 
@@ -641,7 +672,7 @@ namespace QuanLyBanHang
             this.btnTimSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimSP.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnTimSP.ForeColor = System.Drawing.Color.White;
-            this.btnTimSP.Location = new System.Drawing.Point(620, 432);
+            this.btnTimSP.Location = new System.Drawing.Point(598, 432);
             this.btnTimSP.Name = "btnTimSP";
             this.btnTimSP.Size = new System.Drawing.Size(100, 38);
             this.btnTimSP.TabIndex = 24;
@@ -655,7 +686,7 @@ namespace QuanLyBanHang
             this.txtTimSP.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtTimSP.Location = new System.Drawing.Point(308, 436);
             this.txtTimSP.Name = "txtTimSP";
-            this.txtTimSP.Size = new System.Drawing.Size(302, 27);
+            this.txtTimSP.Size = new System.Drawing.Size(284, 27);
             this.txtTimSP.TabIndex = 22;
             // 
             // label10
@@ -709,6 +740,7 @@ namespace QuanLyBanHang
             this.dgvDSSP.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDSSP.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDSSP.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -717,6 +749,7 @@ namespace QuanLyBanHang
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+
             this.dgvDSSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDSSP.ColumnHeadersHeight = 50;
             this.dgvDSSP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -727,17 +760,19 @@ namespace QuanLyBanHang
             this.clprice,
             this.clstock_quantity,
             this.image_url});
+
             this.dgvDSSP.EnableHeadersVisualStyles = false;
             this.dgvDSSP.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(226)))), ((int)(((byte)(230)))));
             this.dgvDSSP.Location = new System.Drawing.Point(17, 3);
             this.dgvDSSP.Name = "dgvDSSP";
             this.dgvDSSP.ReadOnly = true;
-            this.dgvDSSP.RowHeadersVisible = false;
             this.dgvDSSP.RowTemplate.Height = 40;
-            this.dgvDSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            //this.dgvDSSP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect; // chọn dòng đầu tiên
+            this.dgvDSSP.ClearSelection();  // ✅ Ẩn hiện cột mặc định đầu tiên
             this.dgvDSSP.ShowCellErrors = false;
             this.dgvDSSP.Size = new System.Drawing.Size(1192, 405);
             this.dgvDSSP.TabIndex = 2;
+            
             // 
             // clbarcode
             // 
@@ -896,7 +931,7 @@ namespace QuanLyBanHang
             this.dgvOrder_Items.Location = new System.Drawing.Point(2, 2);
             this.dgvOrder_Items.Name = "dgvOrder_Items";
             this.dgvOrder_Items.ReadOnly = true;
-            this.dgvOrder_Items.RowHeadersVisible = false;
+            this.dgvOrder_Items.RowHeadersVisible = true;
             this.dgvOrder_Items.RowTemplate.Height = 28;
             this.dgvOrder_Items.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvOrder_Items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -997,6 +1032,7 @@ namespace QuanLyBanHang
             this.cbTrangThaiDH.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.cbTrangThaiDH.FormattingEnabled = true;
             this.cbTrangThaiDH.Items.AddRange(new object[] {
+            "Chờ xử lý",
             "Đang đóng hàng",
             "Đang trên đường vận chuyển",
             "Đang giao hàng"});
@@ -1134,9 +1170,10 @@ namespace QuanLyBanHang
             this.dgvDSDH.Name = "dgvDSDH";
             this.dgvDSDH.ReadOnly = true;
             this.dgvDSDH.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvDSDH.RowHeadersVisible = false;
+            this.dgvDSDH.RowHeadersVisible = true; // ✅ Ẩn hiện cột mặc định đầu tiên
             this.dgvDSDH.RowTemplate.Height = 38;
-            this.dgvDSDH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            //this.dgvDSDH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDSDH.ClearSelection();  // ✅ Bỏ chọn dòng đầu tiên
             this.dgvDSDH.Size = new System.Drawing.Size(1191, 396);
             this.dgvDSDH.TabIndex = 0;
             // 
@@ -1263,18 +1300,6 @@ namespace QuanLyBanHang
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // pbImage_url
-            // 
-            this.pbImage_url.BackColor = System.Drawing.Color.White;
-            this.pbImage_url.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImage_url.InitialImage = null;
-            this.pbImage_url.Location = new System.Drawing.Point(1054, 424);
-            this.pbImage_url.Name = "pbImage_url";
-            this.pbImage_url.Size = new System.Drawing.Size(140, 130);
-            this.pbImage_url.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage_url.TabIndex = 28;
-            this.pbImage_url.TabStop = false;
-            // 
             // fAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1294,6 +1319,7 @@ namespace QuanLyBanHang
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).EndInit();
             this.tabQuanLySanPham.ResumeLayout(false);
             this.tabQuanLySanPham.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage_url)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSSP)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabQuanLyDonHang.ResumeLayout(false);
@@ -1305,7 +1331,6 @@ namespace QuanLyBanHang
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSDH)).EndInit();
             this.tabPageReport.ResumeLayout(false);
             this.tabPageReport.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImage_url)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1402,5 +1427,6 @@ namespace QuanLyBanHang
         private DataGridViewTextBoxColumn colSoLuong;
         private DataGridViewTextBoxColumn colGia;
         private DataGridViewTextBoxColumn colThanhTien;
+        private Button btnClearBox;
     }
 }
